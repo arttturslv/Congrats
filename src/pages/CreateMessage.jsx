@@ -62,18 +62,6 @@ export function CreateMessage() {
       </Link>
       <div className="bg-greyHighlight h-0.5 mx-8 my-2"></div>
 
-      <div id="header-creation">
-        <h2 className="text-xl">Vamos começar!</h2>
-        <p className="text-xs">Preencha com os dados iniciais</p>
-
-        <div className="relative flex justify-between items-center">
-          <div className="absolute -z-10 bg-greyHighlight w-full h-1.5 my-2"></div>
-          <div className="bg-redHighlight w-3.5 h-3.5 my-2"></div>
-          <div className="bg-greyHighlight w-3.5 h-3.5 my-2"></div>
-          <div className="bg-greyHighlight w-3.5 h-3.5 my-2"></div>
-        </div>
-      </div>
-
       <HeaderProgress index={formIndex}></HeaderProgress>
 
       <div id="form-creation ">

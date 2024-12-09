@@ -5,6 +5,8 @@ import FormGeneral from "./FormGeneral";
 import FormPreview from "./FormPreview";
 import FormImages from "./FormImages";
 
+import {HeaderProgress} from '../components/HeaderProgress'
+
 export function CreateMessage() {
   const Form = useRef();
 
@@ -15,11 +17,6 @@ export function CreateMessage() {
   const [receiverName, setReceiverName] = useState();
   const [dateMet, setDateMet] = useState();
   const [images, setImages] = useState([]);
-  const [imagesInformation, setImagesInformation] = useState([]);
-
-  useEffect(() => {
-    console.dir(images)
-  }, [images])
 
   function handleNextForm() {
     if (!Form.current) return;
@@ -77,6 +74,8 @@ export function CreateMessage() {
         </div>
       </div>
 
+      <HeaderProgress index={formIndex}></HeaderProgress>
+
       <div id="form-creation ">
         <form ref={Form} className="space-y-6 my-4">
           {formIndex == 0 && (
@@ -112,17 +111,22 @@ export function CreateMessage() {
           )}
 
           <div className="flex gap-2">
-            <div
-              className="w-[20%] flex justify-center group items-center gap-2 bg-dark border-redHighlight border-4 px-3 py-1 placeholder:text-sm"
-              id="voltar"
-              onClick={handlePreviousForm}
-            >
-              <img
-                className="fill-light size-4 group-hover:w-5 transition-all duration-400 rotate-180"
-                src="../src/assets/images/arrow.png"
-                alt="arrow icon"
-              />
-            </div>
+            {
+              formIndex > 0 && (
+                <div
+                  className="w-[20%] flex justify-center group items-center gap-2 bg-dark border-redHighlight border-4 px-3 py-1 placeholder:text-sm"
+                  id="voltar"
+                  onClick={handlePreviousForm}
+                >
+                  <img
+                    className="fill-light size-4 group-hover:w-5 transition-all duration-400 rotate-180"
+                    src="../src/assets/images/arrow.png"
+                    alt="arrow icon"
+                  />
+                </div>
+              )
+            }
+
             <button
               className="w-full flex justify-center group items-center gap-2 bg-dark border-redHighlight border-4 px-3 py-1 placeholder:text-sm"
               id="continuar"

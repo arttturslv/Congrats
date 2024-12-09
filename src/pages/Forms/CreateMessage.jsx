@@ -4,7 +4,7 @@ import { useEffect, useState, useRef } from "react";
 import FormGeneral from "./FormGeneral";
 import FormPreview from "./FormPreview";
 import FormImages from "./FormImages";
-
+import Navbar from "../../components/Navbar"
 import {HeaderProgress} from '../../components/HeaderProgress'
 
 export default function CreateMessage() {
@@ -47,20 +47,9 @@ export default function CreateMessage() {
   }
 
   return (
-    <div className="px-5 py-8 h-[100dvh] max-w-[600px] flex flex-col place-self-center">
-      <Link
-        id="page-header"
-        to={"/"}
-        className="flex items-center gap-1 justify-center hover:text-redHighlight transition-colors duration-300"
-      >
-        <img
-          className="size-8"
-          src="../src/assets/images/gift-box.png"
-          alt="gift box icon"
-        />
-        <h1 className="text-3xl">Congrats</h1>
-      </Link>
-      <div className="bg-greyHighlight h-0.5 mx-8 my-2"></div>
+    <div className="px-5 h-[100dvh] max-w-[600px] flex flex-col place-self-center">
+      
+      <Navbar></Navbar>
 
       <HeaderProgress index={formIndex}></HeaderProgress>
 
@@ -120,12 +109,31 @@ export default function CreateMessage() {
               id="continuar"
               onClick={handleNextForm}
             >
-              Continuar
-              <img
-                className="fill-light size-4 group-hover:w-5 transition-all duration-400"
-                src="../src/assets/images/arrow.png"
-                alt="arrow icon"
-              />
+              {
+                formIndex !== 2 ?
+                (
+                  <>
+                  Continuar
+                  <img
+                    className="fill-light size-4 group-hover:w-5 transition-all duration-400"
+                    src="../src/assets/images/arrow.png"
+                    alt="arrow icon"
+                  />
+                  </>
+                ) :
+                (
+                  <>
+
+                  Compartilhar
+                  <img
+                    className="fill-light size-4 "
+                    src="../src/assets/images/share.png"
+                    alt="share icon"
+                  />
+                  </>
+
+                )
+              }
             </button>
           </div>
         </form>

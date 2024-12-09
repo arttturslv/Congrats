@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { ImageView } from "../../components/ImageView";
+import Line from '../../components/Line';
 
 export default function FormImages({ images, setImages }) {
   function changeImagesInformation(id, type, data) {
@@ -39,7 +40,15 @@ export default function FormImages({ images, setImages }) {
 
   return (
     images && (
-      images.map((item, index) => formImageIndividual(item, index, imagesPreview, changeImagesInformation)) 
+      images.map((item, index) => {
+        return (
+          <>
+          
+          {formImageIndividual(item, index, imagesPreview, changeImagesInformation)}
+          <Line></Line>
+          </>
+        )
+      }) 
     )
   );
 }

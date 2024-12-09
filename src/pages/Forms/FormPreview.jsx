@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import ImageCaption from "../Viewer/ImageCaption";
 
 export default function FormPreview({
   title,
@@ -40,8 +41,8 @@ export default function FormPreview({
       {images &&
         images.map((item, index) => {
           console.log(item);
-          return FormPreviewSingular(item, imagesPreview, index);
-        })}
+          return <ImageCaption title={item?.title} date={item?.date} description={item?.description} imagePreview={imagesPreview[index]} key={index}></ImageCaption>
+          })}
     </>
   );
 }

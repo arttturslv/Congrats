@@ -5,7 +5,7 @@ import './index.css'
 
 import App from './App.jsx'
 import Error from './Error.jsx'
-import {CreateMessage} from './pages/CreateMessage.jsx'
+import CreateMessage  from './pages/Forms/CreateMessage.jsx'
 
 const router = createBrowserRouter([
   {

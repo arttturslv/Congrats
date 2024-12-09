@@ -5,9 +5,9 @@ import FormGeneral from "./FormGeneral";
 import FormPreview from "./FormPreview";
 import FormImages from "./FormImages";
 
-import {HeaderProgress} from '../components/HeaderProgress'
+import {HeaderProgress} from '../../components/HeaderProgress'
 
-export function CreateMessage() {
+export default function CreateMessage() {
   const Form = useRef();
 
   const [formIndex, setFormIndex] = useState(0);

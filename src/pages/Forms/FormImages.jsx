@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { ImageView } from "../../components/ImageView";
 
 export default function FormImages({ images, setImages }) {
   function changeImagesInformation(id, type, data) {
@@ -46,18 +47,8 @@ export default function FormImages({ images, setImages }) {
 function formImageIndividual (item, index, imagesPreview, changeImagesInformation) {
   return (
     <div className="space-y-2">
-        <div className="size-72 place-self-center relative border-redHighlight border-[6px]">
-          <div className="absolute w-full h-full bg-gradient-to-b to-dark/80 from-transparent"></div>
-          <img
-            className=" w-full h-full "
-            src={imagesPreview[index]}
-            alt="1º imagem do usuario"
-          />
-          <span className="absolute bottom-0 pl-4 pb-2">
-            <h5>{item.title}</h5>
-            <h6>{item.date}</h6>
-          </span>
-        </div>
+      
+        <ImageView title={item.title} key={index} date={item.date} imagePreview={imagesPreview[index]} />
 
         <div className="h-min w-full space-y-1">
           <label htmlFor="imageTitle1">Título da foto: </label>

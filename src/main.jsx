@@ -4,13 +4,14 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import './index.css'
 
 import App from './App.jsx'
+import Intro from './pages/Viewer/Intro.jsx'
 import Error from './Error.jsx'
 import CreateMessage  from './pages/Forms/CreateMessage.jsx'
 
 const router = createBrowserRouter([
   {
     path:"/",
-    element: <App></App>
+    element: <Intro></Intro>
   },
   {
     path:"/create",

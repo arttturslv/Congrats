@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { compressImage } from "../../hooks/Images";
 
 export default function FormGeneral({
   title,
@@ -12,39 +13,39 @@ export default function FormGeneral({
   images,
   setImages,
 }) {
-
   const [localFiles, setLocalFiles] = useState();
 
-  function handleImages(e) {
-    if(!e.target.files[0]) {
-      console.warn("Nenhuma imagem selecionada.")
+  async function handleImages(e) {
+    if (!e.target.files[0]) {
+      console.warn("Nenhuma imagem selecionada.");
       return;
     }
-    setLocalFiles(e.target.value)
+    setLocalFiles(e.target.value);
 
     let inputImages = [];
 
-    for(let i=0; i< e.target.files.length && i<3 ; i++) {
-      let file = e.target.files[i];
-    console.log(inputImages)
+    for (let i = 0; i < e.target.files.length && i < 3; i++) {
+      let file = await compressImage(e.target.files[i]);
 
-      if(file) {
-        inputImages = [...inputImages, 
+      if (i == 0) {
+        console.log(e.target.files[0]);
+        console.log(file);
+      }
+
+      if (file) {
+        inputImages = [
+          ...inputImages,
           {
             id: i,
             file: file,
             title: null,
             date: null,
             description: null,
-          }
-        ]
+          },
+        ];
       }
     }
-
-    console.log(inputImages)
-    
-    setImages(inputImages)
-
+    setImages(inputImages);
   }
 
   return (

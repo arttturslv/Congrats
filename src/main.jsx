@@ -5,6 +5,7 @@ import './index.css'
 
 import App from './App.jsx'
 import Intro from './pages/Viewer/Intro.jsx'
+import Card from './pages/Viewer/CardViewer.jsx'
 import Error from './Error.jsx'
 import CreateMessage  from './pages/Forms/CreateMessage.jsx'
 
@@ -16,6 +17,10 @@ const router = createBrowserRouter([
   {
     path:"/create",
     element: <CreateMessage/>
+  },
+  {
+    path:"/:id",
+    element: <Card/>
   },
   {
     path:'*',

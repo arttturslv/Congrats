@@ -17,26 +17,26 @@ export default function FormImages({ images, setImages }) {
   }
 
 
-  const [imagesPreview, setImagesPreview] = useState([]);
+  // const [imagesPreview, setImagesPreview] = useState([]);
 
-  useEffect(() => {
-    if(images) {
-      showImagePreview();
-    }
-  }, []);
+  // useEffect(() => {
+  //   // if(images) {
+  //   //   //showImagePreview();
+  //   // }
+  // }, []);
 
-  function showImagePreview() {
-    const filesReaders = images.map((item) => {
-      return new Promise((res, rej) => {
-        const reader = new FileReader();
-        reader.onloadend = () => res(reader.result);
-        reader.onerror = () => rej('Erro ao ler arquivo');
-        reader.readAsDataURL(item.file)
-      })
-    })
+  // function showImagePreview() {
+  //   const filesReaders = images.map((item) => {
+  //     return new Promise((res, rej) => {
+  //       const reader = new FileReader();
+  //       reader.onloadend = () => res(reader.result);
+  //       reader.onerror = () => rej('Erro ao ler arquivo');
+  //       reader.readAsDataURL(item.file)
+  //     })
+  //   })
 
-    Promise.all(filesReaders).then((results) => setImagesPreview(results));
-  }
+  //   Promise.all(filesReaders).then((results) => setImagesPreview(results));
+  // }
 
   return (
     images && (
@@ -44,7 +44,7 @@ export default function FormImages({ images, setImages }) {
         return (
           <>
           
-          {formImageIndividual(item, index, imagesPreview, changeImagesInformation)}
+          {formImageIndividual(item, index, changeImagesInformation, images)}
           <Line></Line>
           </>
         )
@@ -53,11 +53,12 @@ export default function FormImages({ images, setImages }) {
   );
 }
 
-function formImageIndividual (item, index, imagesPreview, changeImagesInformation) {
+function formImageIndividual (item, index, changeImagesInformation, images) {
+
   return (
     <div className="space-y-2">
       
-        <ImageView title={item.title} key={index} date={item.date} imagePreview={imagesPreview[index]} />
+        <ImageView title={item.title} key={index} date={item.date} image={images[index].file} />
 
         <div className="h-min w-full space-y-1">
           <label htmlFor="imageTitle1">Título da foto: </label>

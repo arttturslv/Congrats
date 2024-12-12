@@ -25,19 +25,27 @@ export default function FormGeneral({
     let inputImages = [];
 
     for (let i = 0; i < e.target.files.length && i < 3; i++) {
-      let file = await compressImage(e.target.files[i]);
+      let fileCompressed = await compressImage(e.target.files[i]);
 
+      
+      const fileAs64 = await new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onloadend = () => resolve(reader.result); // Resolve a Base64 string
+        reader.onerror = () => reject('Erro ao ler arquivo'); // Rejeita em caso de erro
+        reader.readAsDataURL(fileCompressed);
+      });
+       
       if (i == 0) {
         console.log(e.target.files[0]);
-        console.log(file);
+        console.log(fileAs64);
       }
 
-      if (file) {
+      if (fileAs64) {
         inputImages = [
           ...inputImages,
           {
             id: i,
-            file: file,
+            file: fileAs64,
             title: null,
             date: null,
             description: null,

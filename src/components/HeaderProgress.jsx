@@ -34,10 +34,10 @@ function printBarElements(maxIndex, index) {
   for (let i = 0; i <= maxIndex*2; i++) {
     if (i % 2 == 0) {
       let color = (i - 1)/2 <= index ? "bg-redHighlight" : "bg-greyHighlight";
-      dots.push(<div className={`${color} w-3.5 h-3.5 my-2`}></div>);
+      dots.push(<div key={i} className={`${color} w-3.5 h-3.5 my-2`}></div>);
     } else {
       let color = i / 2 <= index ? "bg-redHighlight" : "bg-greyHighlight";
-      dots.push(<div className={`${color} flex-grow  h-1.5 my-2`}></div>);
+      dots.push(<div key={i} className={`${color} flex-grow  h-1.5 my-2`}></div>);
     }
   }
   return dots;

@@ -6,9 +6,11 @@
   line-height: 1.5;
   font-weight: 400;
 
-  font-family: 'Zig';
-  src:url('./assets/fonts/zig.ttf') format('ttf');
-  letter-spacing: 1px;
+  font-family: 'Garet';
+  src: url('/src/assets/fonts/Garet-Book.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
@@ -21,4 +23,19 @@
 
 #file-upload-button {
   display: none;
+}
+
+@font-face {
+  font-family: 'Garet';
+  src: url('/src/assets/fonts/Garet-Book.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Zig';
+  src:url('./assets/fonts/zig.ttf') format('ttf');
+  font-weight: normal;
+  font-style: normal;
+  letter-spacing: 1px;
 }

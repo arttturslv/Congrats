@@ -14,7 +14,12 @@ export default {
       redHighlight: '#BA4741',
       greyHighlight: '#363636'
     },
-    extend: {},
+    extend: {
+      fontFamily: {
+        garet: ['Garet', 'sans-serif'],
+        zig: ['Zig', 'sans-serif'],
+      }
+    },
   },
   plugins: [],
 }

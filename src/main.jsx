@@ -8,11 +8,12 @@ import Auth from './pages/Viewer/Auth.jsx'
 import Card from './pages/Viewer/CardViewer.jsx'
 import Error from './Error.jsx'
 import CreateMessage  from './pages/Forms/CreateMessage.jsx'
+import Home from './pages/Home/Home.jsx'
 
 const router = createBrowserRouter([
   {
     path:"/",
-    element: <Card></Card>
+    element: <Home></Home>
   },
   {
     path:"/create",

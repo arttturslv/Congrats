@@ -64,7 +64,7 @@ export async function getCard(easyId, passKey) {
 
 export async function getCardQuantity() {
     try {
-        const response = await fetch(`${API}/stats/count`);
+        const response = await fetch(`${API}/stats`);
 
         if(!response.ok) {
             const errorMessage = await response.text();

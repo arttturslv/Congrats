@@ -25,13 +25,10 @@ export default function ShareInformation ({data}) {
   }
 
   async function handleShare() {
-    // Verifica se a API de compartilhamento é suportada
     if (navigator.share) {
       try {
         await navigator.share({
-          title: "Tenho uma mensagem pra você",  // Título
-          text: data.passKey,                    // Texto a ser compartilhado
-          url: url                                // URL a ser compartilhada
+          url: url 
         });
         console.log("Compartilhado com sucesso!");
       } catch (error) {

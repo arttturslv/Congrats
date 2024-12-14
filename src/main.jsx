@@ -9,11 +9,21 @@ import Card from './pages/Viewer/CardViewer.jsx'
 import Error from './Error.jsx'
 import CreateMessage  from './pages/Forms/CreateMessage.jsx'
 import Home from './pages/Home/Home.jsx'
+import Termos from './pages/Home/Termos.jsx';
+import Privacidade from './pages/Home/Privacidade.jsx';
 
 const router = createBrowserRouter([
   {
     path:"/",
     element: <Home></Home>
+  },
+  {
+    path:"/termos-de-uso",
+    element: <Termos></Termos>
+  },
+  {
+    path:"/politica-privacidade",
+    element: <Privacidade></Privacidade>
   },
   {
     path:"/create",

@@ -5,7 +5,6 @@ import Hero from "./components/Hero";
 import About from "./components/About";
 
 export default function Home() {
-  
   return (
     <motion.div
       transition={{ ease: "easeInOut" }}
@@ -15,7 +14,6 @@ export default function Home() {
       <Navbar></Navbar>
 
       <div className="space-y-12 sm:pt-12 pt-2 pb-2">
-        
         <Hero></Hero>
 
         <About></About>

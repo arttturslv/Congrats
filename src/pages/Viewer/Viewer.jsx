@@ -1,17 +1,16 @@
-import { Link } from "react-router-dom";
-import { useEffect, useState, useRef, Component } from "react";
 import ImageCaption from './ImageCaption'
-import { motion, useAnimationControls } from "motion/react";
+import { motion } from "motion/react";
 import Countdown from '../../components/Countdown'
 import Navbar from "../../components/Navbar";
-export default function Viewer({card}) {
+export default function Viewer({card, teste=false}) {
  
   return (
     <motion.div
       transition={{ ease: "easeInOut" }}
       animate={{ opacity: [0, 1] }} 
       className="px-5 h-[100dvh] max-w-[402px] flex flex-col place-self-center">
-      <Navbar></Navbar>
+        
+        {!teste && <Navbar></Navbar>}
 
       <div className="space-y-4">
             <div className="space-y-0">
@@ -20,8 +19,6 @@ export default function Viewer({card}) {
               </h3>
               <h5 className="text-xs">De: {card.senderName}</h5>
             </div>
-
-            <Countdown ></Countdown>
 
             {card.pictures &&
               card.pictures.map((item, index) => {
@@ -35,6 +32,9 @@ export default function Viewer({card}) {
                   ></ImageCaption>
                 );
               })}
+
+              <Countdown date={card?.dateMet}></Countdown>
+
           </div>
 
     </motion.div>

@@ -1,9 +1,11 @@
 import CustomButton from "../../../components/CustomButton";
 import { useState, useEffect } from "react";
 import { getCardQuantity } from "../../../hooks/useAPI";
+import { useNavigate } from 'react-router-dom';
 
 export default function Hero() {
   const [quantityOfUsers, setQuantityOfUsers] = useState(null);
+  const navigate = useNavigate(); // Hook para navegação
 
   useEffect(() => {
     const fetchQuantityUsers = async () => {
@@ -33,7 +35,7 @@ export default function Hero() {
           marcantes. Adicione fotos, mensagens e detalhes personalizados para
           tornar cada fase ainda mais inesquecível.
         </p>
-        <CustomButton onClick={() => alert("aeaiei")}>
+        <CustomButton onClick={()=>navigate('/create')}>
           Criar minha mensagem
         </CustomButton>
       </div>

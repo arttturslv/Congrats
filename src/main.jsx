@@ -7,7 +7,7 @@ import App from './App.jsx'
 import Auth from './pages/Viewer/Auth.jsx'
 import Card from './pages/Viewer/CardViewer.jsx'
 import Error from './Error.jsx'
-import CreateMessage  from './pages/Forms/CreateMessage.jsx'
+import Create  from './pages/Forms/Create.jsx'
 import Home from './pages/Home/Home.jsx'
 import Termos from './pages/Home/Termos.jsx';
 import Privacidade from './pages/Home/Privacidade.jsx';
@@ -27,7 +27,7 @@ const router = createBrowserRouter([
   },
   {
     path:"/create",
-    element: <CreateMessage/>
+    element: <Create/>
   },
   {
     path:"/:id/:passKey?",

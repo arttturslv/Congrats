@@ -17,8 +17,8 @@ export function HeaderProgress({ maxIndex = 2, index }) {
 
   return (
     <div id="header-creation">
-      <h2 className="text-xl">{data[index].title}</h2>
-      <p className="text-xs">{data[index].subtitle}</p>
+      <h2 className="text-xl font-zig">{data[index].title}</h2>
+      <p className="text-sm">{data[index].subtitle}</p>
 
       <div className="relative flex items-center transition-colors duration-700">
         <div className="absolute -z-10 bg-greyHighlight w-full h-1.5 my-2"></div>

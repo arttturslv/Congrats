@@ -1,7 +1,7 @@
 import { div } from "motion/react-client";
 import { useRef, useState, useEffect } from "react";
 
-export default function Countdown({ date =  "2020-12-13T02:30"}) {
+export default function Countdown({date}) {
   const dateMet = new Date(date);
 
   const [time, setTime] = useState(0);
@@ -14,8 +14,6 @@ export default function Countdown({ date =  "2020-12-13T02:30"}) {
 
   useEffect(() => {
     function updateCountDown() {
-      const now = new Date();
-
       let res = new Date() - dateMet;
       console.log(res);
       
@@ -54,7 +52,7 @@ export default function Countdown({ date =  "2020-12-13T02:30"}) {
   }, []);
 
   return (
-    distanceInMili > 0 && (
+    date!=null && distanceInMili > 0 && (
       <div>
         <h3>Juntos a:</h3>
         <div className="text-xs flex flex-wrap">

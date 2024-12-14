@@ -17,6 +17,7 @@ export default {
     extend: {
       fontFamily: {
         garet: ['Garet', 'sans-serif'],
+        garetBold: ['GaretHeavy', 'sans-serif'],
         zig: ['Zig', 'sans-serif'],
       }
     },

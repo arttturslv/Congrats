@@ -1,7 +1,6 @@
 import { useState } from "react";
-import { getCardQuantity, getCard } from "../../hooks/useAPI";
+import { getCard } from "../../hooks/useAPI";
 import { useEffect } from "react";
-import { div, p } from "motion/react-client";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import Auth from "./Auth";

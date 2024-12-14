@@ -10,11 +10,11 @@ export default function Viewer({card, teste=false}) {
       animate={{ opacity: [0, 1] }} 
       className="px-5 h-[100dvh] max-w-[402px] flex flex-col place-self-center">
         
-        {!teste && <Navbar></Navbar>}
+      {!teste && <Navbar></Navbar>}
 
       <div className="space-y-4">
             <div className="space-y-0">
-              <h3 className="text-lg">
+              <h3 className="text-lg font-zig">
                 {card.title}, {card.receiverName}!
               </h3>
               <h5 className="text-xs">De: {card.senderName}</h5>

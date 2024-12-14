@@ -4,23 +4,22 @@ import html2canvas from 'html2canvas';
 
 export default function ShareInformation({ data }) {
   const location = window.location.href; // Obtém a URL completa
+  const lastPartOfLocation = location.split('/').pop();
 
   const [aboutPassKey, setAboutPassKey] = useState("A sua senha é: ");
-  const [url, setURL] = useState(location.substring(0, location.length - 6) + data.easyId);
+
+  const [url, setURL] = useState(location.substring(0, location.length - lastPartOfLocation.length) + data.easyId);
 
   const qrRef = useRef();
 
   const downloadQRCode = () => {
-    // Captura a div com o QR Code e outras personalizações
     html2canvas(qrRef.current).then((canvas) => {
-      // Converte o canvas para uma URL de imagem
       const imageUrl = canvas.toDataURL('image/png');
       
-      // Cria um link para download
       const link = document.createElement('a');
       link.href = imageUrl;
-      link.download = 'QRCodeWithLogo.png';  // Nome do arquivo para download
-      link.click();  // Simula o clique no link para iniciar o download
+      link.download = 'Congrats-qrCode.png';  
+      link.click(); 
     });
   };
 

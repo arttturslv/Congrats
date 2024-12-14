@@ -1,7 +1,7 @@
 import Navbar from "../../components/Navbar";
 import Balloon from "../../components/Balloon";
 import { useEffect, useState } from "react";
-import { motion, useAnimationControls } from "motion/react";
+import { motion } from "motion/react";
 
 import BallonBlue from "../../assets/images/balloon-blue.png";
 import BallonRed from "../../assets/images/balloon-red.png";

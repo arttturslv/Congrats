@@ -1,15 +1,6 @@
 import Navbar from "../../components/Navbar";
-import Balloon from "../../components/Balloon";
 import { useEffect, useState } from "react";
-import { motion, useAnimationControls } from "motion/react";
-
-import BallonBlue from "../../assets/images/balloon-blue.png";
-import BallonRed from "../../assets/images/balloon-red.png";
-import BallonYellow from "../../assets/images/balloon-yellow.png";
-
-import BallonBlueR from "../../assets/images/balloon-blue-ripped.png";
-import BallonRedR from "../../assets/images/balloon-red-ripped.png";
-import BallonYellowR from "../../assets/images/balloon-yellow-ripped.png";
+import { motion } from "motion/react";
 
 export default function Auth({ setPassKey, passKey }) {
   const [inputValue, setInputValue] = useState(null);

@@ -10,7 +10,8 @@ export default function FormGeneral({
   receiverName,
   dateMet,
   setDateMet,
-  images,
+  setIsLocked,
+  isLocked,
   setImages,
 }) {
   const [localFiles, setLocalFiles] = useState();
@@ -27,14 +28,13 @@ export default function FormGeneral({
     for (let i = 0; i < e.target.files.length && i < 3; i++) {
       let fileCompressed = await compressImage(e.target.files[i]);
 
-      
       const fileAs64 = await new Promise((resolve, reject) => {
         const reader = new FileReader();
         reader.onloadend = () => resolve(reader.result); // Resolve a Base64 string
-        reader.onerror = () => reject('Erro ao ler arquivo'); // Rejeita em caso de erro
+        reader.onerror = () => reject("Erro ao ler arquivo"); // Rejeita em caso de erro
         reader.readAsDataURL(fileCompressed);
       });
-       
+
       if (i == 0) {
         console.log(e.target.files[0]);
         console.log(fileAs64);
@@ -67,7 +67,7 @@ export default function FormGeneral({
           id="title"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
-          placeholder="Remetente"
+          placeholder="Título"
           required
         />
       </div>
@@ -109,8 +109,9 @@ export default function FormGeneral({
           placeholder="dd/mm/aaaa"
         />
       </div>
+
       <div className="h-min w-full space-y-1">
-        <label htmlFor="images">Escolha as fotos (máx 3):*</label>
+        <label htmlFor="images">As fotos (máx 3):*</label>
         <input
           className="w-full file:hidden bg-dark border-redHighlight border-4 px-3 py-1 placeholder:text-sm"
           type="file"
@@ -122,6 +123,24 @@ export default function FormGeneral({
           onChange={(e) => handleImages(e)}
           required
         />
+      </div>
+      <div className="h-min w-full space-y-1">
+        <label htmlFor="isLocked">Privado?</label>
+
+        <select
+          className="w-full bg-dark border-redHighlight border-4 px-3 py-2.5 placeholder:text-sm"
+          type="checkbox"
+          name="dateTimeMet"
+          id="isLocked"
+          value={isLocked}
+          onChange={(e) => setIsLocked(e.target.value)}
+          placeholder="dd/mm/aaaa"
+        >
+          <option className="w-full bg-dark border-redHighlight border-4 px-3 py-2.5 placeholder:text-sm" value={true}>Sim</option>
+          <option className="w-full bg-dark border-redHighlight border-4 px-3 py-2.5 placeholder:text-sm" value={false}selected>
+            Não
+          </option>
+        </select>
       </div>
     </div>
   );

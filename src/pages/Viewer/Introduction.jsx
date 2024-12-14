@@ -11,11 +11,11 @@ import BallonBlueR from "../../assets/images/balloon-blue-ripped.png";
 import BallonRedR from "../../assets/images/balloon-red-ripped.png";
 import BallonYellowR from "../../assets/images/balloon-yellow-ripped.png";
 
-export default function Intro() {
+export default function Introduction({setShowPage, receiver, setCard}) {
   const [clicked, setClicked] = useState([false, false, false]); // Array para controlar os estados
 
   const [message, setMessage] = useState(
-    "Oi, Julia! \n Você tem um presente..."
+    `Oi, ${receiver}! \n Você tem um presente...`
   );
   const [messageAnimated, setMessageAnimated] = useState("");
   const [indexMessage, setIndexMessage] = useState(0);
@@ -39,7 +39,6 @@ export default function Intro() {
   };
 
   const handleGet = (index) => {
-    console.log(clicked[1]);
     return clicked[index];
   };
 
@@ -49,7 +48,7 @@ export default function Intro() {
     <motion.div
       transition={{ ease: "easeInOut" }}
       animate={{ opacity: [0, 1] }}
-      className="px-5 h-[100dvh] max-w-[600px] flex flex-col place-self-center "
+      className="px-5 h-[100dvh] max-w-[402px] flex flex-col place-self-center "
     >
       <Navbar></Navbar>
 
@@ -120,7 +119,9 @@ export default function Intro() {
                     animate={
                       scale: 100
                     }
+
                   }, 3000);
+                  setShowPage(true)
                 }
               }}
             ></motion.img>

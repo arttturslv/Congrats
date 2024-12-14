@@ -19,7 +19,6 @@ export default function FormPreview({
 
       {images &&
         images.map((item, index) => {
-          console.log("item: ", item)
           return <ImageCaption title={item?.title} date={item?.date} description={item?.description} image={item?.file} key={index}></ImageCaption>
           })}
     </>

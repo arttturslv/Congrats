@@ -4,7 +4,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import './index.css'
 
 import App from './App.jsx'
-import Intro from './pages/Viewer/Intro.jsx'
+import Auth from './pages/Viewer/Auth.jsx'
 import Card from './pages/Viewer/CardViewer.jsx'
 import Error from './Error.jsx'
 import CreateMessage  from './pages/Forms/CreateMessage.jsx'
@@ -12,14 +12,14 @@ import CreateMessage  from './pages/Forms/CreateMessage.jsx'
 const router = createBrowserRouter([
   {
     path:"/",
-    element: <Intro></Intro>
+    element: <Card></Card>
   },
   {
     path:"/create",
     element: <CreateMessage/>
   },
   {
-    path:"/:id",
+    path:"/:id/:passKey?",
     element: <Card/>
   },
   {

@@ -5,9 +5,9 @@ import FormImages from "./components/FormDetails";
 import Navbar from "../../components/Navbar";
 import { HeaderProgress } from "./components/HeaderProgress";
 import { postCard } from "../../hooks/useAPI";
-import ShareInformation from "../Viewer/ShareInformation";
+import ShareInformation from "./components/ShareInformation";
 import CustomButton from "../../components/CustomButton";
-import Viewer from "../Viewer/Viewer";
+import CardViewer from "../Viewer/CardViewer";
 
 export default function Create() {
   const Form = useRef();
@@ -96,7 +96,7 @@ export default function Create() {
     />,
     <FormImages images={images} setImages={setImages} />,
 
-    <Viewer card={cards} teste={true}/>,
+    <CardViewer card={cards} teste={true}/>,
   ];
 
   return (

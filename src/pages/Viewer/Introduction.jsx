@@ -104,22 +104,20 @@ export default function Introduction({setShowPage, receiver, setCard}) {
               alt="caixa de presente"
               animate={
                 allGone
-                  ? { y: -80, scale: 1.1 } // Desaparecer e escalar
-                  : { y: [0, -8, 0], scale: 1, opacity: 1 } // Flutuar
+                  ? { y: -80, scale: 1.1 }
+                  : { y: [0, -8, 0], scale: 1, opacity: 1 } 
               }
               transition={
                 allGone
-                  ? { duration: 2, ease: "easeInOut" } // Transição única
-                  : { duration: 2, repeat: Infinity, ease: "easeInOut" } // Loop
+                  ? { duration: 2, ease: "easeInOut" } 
+                  : { duration: 2, repeat: Infinity, ease: "easeInOut" } 
               }
               onAnimationComplete={() => {
                 if (allGone) {
-                  // Esperar 1 segundo após a última animação
                   setTimeout(() => {
                     animate={
                       scale: 100
                     }
-
                   }, 3000);
                   setShowPage(true)
                 }

@@ -1,4 +1,4 @@
-import { ImageView } from "../../components/ImageView";
+import { ImageView } from "../../../components/ImageView";
 
 export default function ImageCaption( {image, title, date, description, index} ) {
   return (

@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { motion } from "motion/react";
 
 export default function Auth({ setPassKey, passKey }) {
-  const [inputValue, setInputValue] = useState(null);
+  const [inputValue, setInputValue] = useState('');
 
   const [message, setMessage] = useState(
     `Você tem uma mensagem, mas precisa da senha!`

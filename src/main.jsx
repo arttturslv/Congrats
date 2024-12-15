@@ -3,9 +3,7 @@ import { createRoot } from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import './index.css'
 
-import App from './App.jsx'
-import Auth from './pages/Viewer/Auth.jsx'
-import Card from './pages/Viewer/CardViewer.jsx'
+import Viewer from './pages/Viewer/Viewer.jsx'
 import Error from './Error.jsx'
 import Create  from './pages/Forms/Create.jsx'
 import Home from './pages/Home/Home.jsx'
@@ -31,7 +29,7 @@ const router = createBrowserRouter([
   },
   {
     path:"/:id/:passKey?",
-    element: <Card/>
+    element: <Viewer/>
   },
   {
     path:'*',

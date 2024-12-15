@@ -1,94 +1,42 @@
-import { useState } from "react";
-import { getCard } from "../../hooks/useAPI";
-import { useEffect } from "react";
-import { useParams } from "react-router-dom";
-import { Link } from "react-router-dom";
-import Auth from "./Auth";
-import Introduction from "./Introduction";
-import Viewer from "./Viewer";
-export default function CardView() {
-  const { id, passKey } = useParams();
+import ImageCaption from './components/ImageCaption'
+import { motion } from "motion/react";
+import Countdown from '../../components/Countdown'
+import Navbar from "../../components/Navbar";
 
-  const [card, setCard] = useState(null);
-  const [cardStatus, setCardStatus] = useState('null');
+export default function CardViewer({card, teste=false}) { 
+  return (
+    <motion.div
+      transition={{ ease: "easeInOut" }}
+      animate={{ opacity: [0, 1] }} 
+      className="px-5 h-[100dvh] max-w-[402px] flex flex-col place-self-center">
+        
+      {!teste && <Navbar></Navbar>}
 
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
-  const [nextPage, setNextPage] = useState(false);
+      <div className="space-y-4">
+            <div className="space-y-0">
+              <h3 className="text-lg font-zig">
+                {card.title}, {card.receiverName}!
+              </h3>
+              <h5 className="text-xs">De: {card.senderName}</h5>
+            </div>
 
-  const [userPassKey, setUserPassKey] = useState(null);
+            {card.pictures &&
+              card.pictures.map((item, index) => {
+                return (
+                  <ImageCaption
+                    title={item?.title}
+                    date={item?.date}
+                    description={item?.description}
+                    image={item?.file}
+                    key={index}
+                  ></ImageCaption>
+                );
+              })}
 
-  useEffect(() => {
-    const fetchData = async () => {
-      setLoading(true);
+              <Countdown date={card?.dateMet}></Countdown>
 
-      try {
-        let {status, res} = await getCard(id, passKey);
-        setCardStatus(status); 
-        if(status=="success") {
-          setCard(res);
-        }
-      } catch (error) {
-        setError(error);
-      } finally {
-        setLoading(false);
-      }
-    };
+          </div>
 
-    if (card === null) {
-      fetchData();
-    }
-  }, [id, passKey]);
-
-  if (error) {
-    return (
-      <div className="space-y-2 text-center flex justify-center items-center h-screen flex-col">
-        <p className=" text-[#d34444]">{error.message}</p>
-
-        <Link
-          className="w-full flex justify-center group items-center gap-2 bg-dark border-redHighlight border-4 px-3 py-1 placeholder:text-sm"
-          id="continuar"
-          to="/"
-        >
-          <>
-            <img
-              className="fill-light size-4 group-hover:w-5 rotate-180 transition-all duration-400"
-              src="../src/assets/images/arrow.png"
-              alt="arrow icon"
-            />
-            Voltar
-          </>
-        </Link>
-      </div>
-    );
-  } 
-
-  if (loading) {
-    return (
-      <div className="space-y-2 text-center flex justify-center items-center h-screen flex-col">
-        <img
-              className={`size-32`}
-              src="./src/assets/images/gift-box.png"
-              alt="caixa de presente"
-            ></img>
-        <p className=" text-light animate-pulse">Procurando por presentes</p>
-      </div>
-    )
-  }
-
-  if (cardStatus=="success") {
-    return (
-      nextPage ?
-      <Viewer card={card}></Viewer>
-      :
-      <Introduction receiver={card.receiverName} setCard={setCard} setShowPage={setNextPage}></Introduction>
-    )
-  }
-
-  if (cardStatus=="pending") {
-    return (
-      <Auth setPassKey={setUserPassKey} passKey={userPassKey}></Auth>
-    )
-  }
-
+    </motion.div>
+  );
 }

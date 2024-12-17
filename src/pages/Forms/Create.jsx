@@ -19,6 +19,7 @@ export default function Create() {
   const [dateMet, setDateMet] = useState("");
   const [images, setImages] = useState([]);
   const [isLocked, setIsLocked] = useState(false);
+  const [youtubeURL, setYoutubeURL] = useState("");
 
   const [shareInformation, setShareInformation] = useState(null);
 
@@ -32,7 +33,7 @@ export default function Create() {
     }
 
     try {
-      console.log(title, senderName, receiverName, dateMet);
+      console.log(title, senderName, receiverName, dateMet, youtubeURL);
       console.dir(images);
 
       const resp = await postCard(
@@ -41,7 +42,8 @@ export default function Create() {
         receiverName,
         dateMet,
         images,
-        isLocked
+        isLocked,
+        youtubeURL
       );
       setShareInformation(resp);
 
@@ -77,6 +79,7 @@ export default function Create() {
     receiverName: receiverName,
     senderName: senderName,
     title: title,
+    youtubeURL: youtubeURL,
   };
 
   const formParts = [
@@ -93,6 +96,8 @@ export default function Create() {
       isLocked={isLocked}
       images={images}
       setImages={setImages}
+      youtubeURL={youtubeURL}
+      setYoutubeURL={setYoutubeURL}
     />,
     <FormImages images={images} setImages={setImages} />,
 

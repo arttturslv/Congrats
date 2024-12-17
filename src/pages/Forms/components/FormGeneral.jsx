@@ -14,6 +14,8 @@ export default function FormGeneral({
   setIsLocked,
   isLocked,
   setImages,
+  youtubeURL,
+  setYoutubeURL
 }) {
   const [localFiles, setLocalFiles] = useState('');
 
@@ -107,6 +109,15 @@ export default function FormGeneral({
         value={dateMet}
         fn={(e) => setDateMet(e.target.value)}
         placeholder="dd/mm/aaaa"
+      />
+
+      <CustomInput
+        label="Video do Youtube"
+        type="text"
+        name="youtubeURL"
+        value={youtubeURL}
+        fn={(e) => setYoutubeURL(e.target.value)}
+        placeholder="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
       />
 
       <CustomInput label="Privado" name="isLocked">

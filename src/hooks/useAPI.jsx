@@ -2,7 +2,7 @@ import { body } from "motion/react-client";
 
 const API = import.meta.env.VITE_API;
 
-export async function postCard(title, sender, receiver, dateMet, pictures, isLocked) {
+export async function postCard(title, sender, receiver, dateMet, pictures, isLocked, youtubeURL) {
 
     const data = {
         title:title, 
@@ -10,7 +10,8 @@ export async function postCard(title, sender, receiver, dateMet, pictures, isLoc
         receiverName: receiver,
         dateMet:dateMet, 
         pictures:pictures,
-        passKey:isLocked
+        passKey:isLocked,
+        youtubeURL:youtubeURL,
     }
     try {
         const response = await fetch(`${API}/create`, {

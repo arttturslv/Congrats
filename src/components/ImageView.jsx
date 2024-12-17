@@ -1,8 +1,16 @@
 export function ImageView({ image, title, date }) {
   function formatDate(date) {
     if (date == null) return;
-    let newDate = new Date(date).toLocaleDateString("pt-BR");
-    return newDate;
+
+    let newDate = new Date(date);
+
+    let year = newDate.getUTCFullYear();
+    let month = newDate.getUTCMonth(); 
+    let day = newDate.getUTCDate();
+  
+    let formattedDate = new Date(year, month, day);
+    
+    return formattedDate.toLocaleDateString("pt-BR");
   }
 
   return (

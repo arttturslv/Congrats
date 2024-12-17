@@ -1,12 +1,10 @@
-import { div } from "motion/react-client";
-import { useRef, useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import Line from "./Line";
 
 export default function Countdown({ date }) {
   const dateMet = new Date(date);
 
   const [time, setTime] = useState(0);
-  const [time2, setTime2] = useState(0);
 
   const [distanceInMili, setDistanceInMili] = useState(0);
 

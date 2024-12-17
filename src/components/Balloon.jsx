@@ -1,7 +1,6 @@
-import { useState } from "react";
 import useSound from "use-sound";
 import balloonPop from "../assets/sound/balloon-pop1.mp3";
-import { motion, useAnimationControls } from "motion/react"
+import { motion } from "motion/react"
 
 export default function Balloon({fn, index, ripped, normal, get}) {
   const [play] = useSound(balloonPop, { volume: 0.5 });

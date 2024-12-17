@@ -6,6 +6,8 @@ import { Link } from "react-router-dom";
 import Auth from "./Authentication";
 import Introduction from "./Introduction";
 import CardViewer from "./CardViewer";
+import arrowIcon from "../../assets/images/arrow.png"
+
 export default function Viewer() {
   const { id, passKey } = useParams();
 
@@ -55,7 +57,7 @@ export default function Viewer() {
           <>
             <img
               className="fill-light size-4 group-hover:w-5 rotate-180 transition-all duration-400"
-              src="/src/assets/images/arrow.png"
+              src={arrowIcon}
               alt="arrow icon"
             />
             Voltar

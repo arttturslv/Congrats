@@ -1,5 +1,3 @@
-import { body } from "motion/react-client";
-
 const API = import.meta.env.VITE_API;
 
 export async function postCard(title, sender, receiver, dateMet, pictures, isLocked, youtubeURL) {

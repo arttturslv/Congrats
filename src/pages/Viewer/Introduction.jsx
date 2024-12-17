@@ -11,6 +11,8 @@ import BallonBlueR from "../../assets/images/balloon-blue-ripped.png";
 import BallonRedR from "../../assets/images/balloon-red-ripped.png";
 import BallonYellowR from "../../assets/images/balloon-yellow-ripped.png";
 
+import giftBoxIcon from "../../assets/images/gift-box.png"
+
 export default function Introduction({setShowPage, receiver, setCard}) {
   const [clicked, setClicked] = useState([false, false, false]); // Array para controlar os estados
 
@@ -100,7 +102,7 @@ export default function Introduction({setShowPage, receiver, setCard}) {
           <div className="flex flex-col items-center space-y-2 transition-all duration-[3000ms]">
             <motion.img
               className={`size-32`}
-              src="./src/assets/images/gift-box.png"
+              src={giftBoxIcon}
               alt="caixa de presente"
               animate={
                 allGone

@@ -9,6 +9,8 @@ import ShareInformation from "./components/ShareInformation";
 import CustomButton from "../../components/CustomButton";
 import CardViewer from "../Viewer/CardViewer";
 
+import arrowIcon from "../../assets/images/arrow.png"
+
 export default function Create() {
   const Form = useRef();
 
@@ -149,7 +151,7 @@ function showRightButtons(
         >
           <img
             className="fill-light size-4 group-hover:w-5 transition-all duration-400 rotate-180"
-            src="/src/assets/images/arrow.png"
+            src={arrowIcon}
             alt="arrow icon"
           />
         </CustomButton>
@@ -161,7 +163,7 @@ function showRightButtons(
             Continuar
             <img
               className="fill-light size-4 group-hover:w-5 transition-all duration-400"
-              src="/src/assets/images/arrow.png"
+              src={arrowIcon}
               alt="arrow icon"
             />
           </>

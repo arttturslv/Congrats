@@ -2,6 +2,9 @@ import { useState, useRef } from "react";
 import QRCode from 'react-qr-code';
 import html2canvas from 'html2canvas';
 
+import shareIcon from "../../../assets/images/download.png";
+import downloadIcon from "../../../assets/images/download.png"
+
 export default function ShareInformation({ data }) {
   const location = window.location.href; // Obtém a URL completa
   const lastPartOfLocation = location.split('/').pop();
@@ -77,7 +80,7 @@ export default function ShareInformation({ data }) {
             Compartilhar
             <img
               className="fill-light size-4 "
-              src="/src/assets/images/share.png"
+              src={shareIcon}
               alt="share icon"
             />
           </button>
@@ -86,7 +89,7 @@ export default function ShareInformation({ data }) {
             QR-CODE
             <img
               className="fill-light size-4 "
-              src="/src/assets/images/download.png"
+              src={downloadIcon}
               alt="share icon"
             />
           </button>

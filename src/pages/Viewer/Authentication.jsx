@@ -2,6 +2,9 @@ import Navbar from "../../components/Navbar";
 import { useEffect, useState } from "react";
 import { motion } from "motion/react";
 
+import arrowIcon from "../../assets/images/arrow.png"
+import lockIcon from "../../assets/images/locked.png";
+
 export default function Auth({ setPassKey, passKey }) {
   const [inputValue, setInputValue] = useState('');
 
@@ -38,7 +41,7 @@ export default function Auth({ setPassKey, passKey }) {
       <div className="h-full flex-1 flex flex-col items-center justify-center jus space-y-4 transition-all duration-700  ">
         <span className="flex gap-1 items-center">
           <h3 className="text-lg">{messageAnimated}</h3>
-          <img className="size-10" src="/src/assets/images/lock/locked.png" />
+          <img className="size-10" src={lockIcon} />
         </span>
         <form className="flex gap-2">
           <input
@@ -59,8 +62,8 @@ export default function Auth({ setPassKey, passKey }) {
                 <>
                   <img
                     className="fill-light size-4 "
-                    src="/src/assets/images/arrow.png"
-                    alt="share icon"
+                    src={arrowIcon}
+                    alt="arrow icon"
                   />
                 </>
               </button>

@@ -33,6 +33,7 @@ export async function postCard(title, sender, receiver, dateMet, pictures, isLoc
 }
 
 export async function getCard(easyId, passKey) {
+    console.trace("show me")
     try {
         const response = await fetch(`${API}/${easyId}/${passKey}`);
 

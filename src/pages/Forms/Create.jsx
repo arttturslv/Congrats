@@ -55,7 +55,9 @@ export default function Create() {
     }
   }
 
-  function handleNextForm() {
+  function handleNextForm(e) {
+    e.preventDefault();
+
     if (!Form.current) {
       return;
     }
@@ -67,7 +69,9 @@ export default function Create() {
     }
   }
 
-  function handlePreviousForm() {
+  function handlePreviousForm(e) {
+    e.preventDefault();
+
     if (formIndex == 0) {
       return;
     }
@@ -114,8 +118,8 @@ export default function Create() {
         {!shareInformation && (
           <>
             <HeaderProgress index={formIndex}></HeaderProgress>
-            <div id="form-creation ">
-              <form ref={Form} className="space-y-6 my-4">
+            <div id="form-creation">
+              <form ref={Form}  className="space-y-6 my-4">
                 {formParts[formIndex]}
                 {showRightButtons(
                   formIndex,
@@ -147,7 +151,7 @@ function showRightButtons(
       {formIndex > 0 && (
         <CustomButton
           customStyle={"w-[20%] group"}
-          onClick={handlePreviousForm}
+          onClick={(e) => handlePreviousForm(e)}
         >
           <img
             className="fill-light size-4 group-hover:w-5 transition-all duration-400 rotate-180"
@@ -158,7 +162,7 @@ function showRightButtons(
       )}
 
       {formIndex < 2 && (
-        <CustomButton customStyle={"w-full group"} onClick={handleNextForm}>
+        <CustomButton customStyle={"w-full group"} onClick={(e) => handleNextForm(e)}>
           <>
             Continuar
             <img

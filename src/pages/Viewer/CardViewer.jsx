@@ -44,10 +44,10 @@ export default function CardViewer({ card, teste = false }) {
               })}
           </div>
 
-          <VideoIframe URL={card?.youtubeURL} />
+          <VideoIframe teste={teste} URL={card?.youtubeURL} />
         </div>
 
-        <ShareCard pictures={card.pictures} receiverName={card.receiverName} title={card.title} senderName={card.senderName}></ShareCard>
+        <ShareCard teste={teste} pictures={card.pictures} receiverName={card.receiverName} title={card.title} senderName={card.senderName}></ShareCard>
         
       </div>
     </motion.div>

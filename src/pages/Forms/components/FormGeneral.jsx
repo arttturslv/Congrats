@@ -1,7 +1,8 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { compressImage } from "../../../hooks/Images";
 import CustomInput from "../../../components/CustomInput";
 import Line from "../../../components/Line";
+
 export default function FormGeneral({
   title,
   setTitle,

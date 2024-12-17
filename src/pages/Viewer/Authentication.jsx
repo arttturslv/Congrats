@@ -59,7 +59,7 @@ export default function Auth({ setPassKey, passKey }) {
                 <>
                   <img
                     className="fill-light size-4 "
-                    src="../src/assets/images/arrow.png"
+                    src="/src/assets/images/arrow.png"
                     alt="share icon"
                   />
                 </>

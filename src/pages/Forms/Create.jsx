@@ -149,7 +149,7 @@ function showRightButtons(
         >
           <img
             className="fill-light size-4 group-hover:w-5 transition-all duration-400 rotate-180"
-            src="../src/assets/images/arrow.png"
+            src="/src/assets/images/arrow.png"
             alt="arrow icon"
           />
         </CustomButton>
@@ -161,7 +161,7 @@ function showRightButtons(
             Continuar
             <img
               className="fill-light size-4 group-hover:w-5 transition-all duration-400"
-              src="../src/assets/images/arrow.png"
+              src="/src/assets/images/arrow.png"
               alt="arrow icon"
             />
           </>

@@ -77,7 +77,7 @@ export default function ShareInformation({ data }) {
             Compartilhar
             <img
               className="fill-light size-4 "
-              src="../src/assets/images/share.png"
+              src="/src/assets/images/share.png"
               alt="share icon"
             />
           </button>
@@ -86,7 +86,7 @@ export default function ShareInformation({ data }) {
             QR-CODE
             <img
               className="fill-light size-4 "
-              src="../src/assets/images/download.png"
+              src="/src/assets/images/download.png"
               alt="share icon"
             />
           </button>

@@ -1,45 +1,64 @@
 import { useRef } from "react";
 import html2canvas from "html2canvas";
 import Line from "../../../components/Line";
-import CustomButton from '../../../components/CustomButton'
+import CustomButton from "../../../components/CustomButton";
 
-export default function ShareCard({senderName, receiverName, pictures, title}) {
+export default function ShareCard({
+  senderName,
+  receiverName,
+  pictures,
+  title,
+}) {
+  const URL = window.location.href;
 
-    const URL = window.location.href;
+  const shareRef = useRef();
 
-    const shareRef = useRef();
-  
-      const shareWithFriends = () => {
-        html2canvas(shareRef.current).then(function(canvas) {
-          canvas.toBlob(function(blob) {
-            const file = new File([blob], 'Congrats-Presente.png', { type: 'image/png' });
-    
-            const shareData = {
-              files: [file],
-              title: 'Meu presente',
-            };
-              if (navigator.share) {
-              navigator.share(shareData)
-                .then(() => console.log("Presente compartilhado com sucesso!"))
-                .catch((error) => console.log('Erro ao compartilhar:', error));
-            } else {
-              console.log('API não suportada.');
-    
-              // Fallback para navegadores que não suportam a API de compartilhamento
-              const url = window.location.href; 
-              navigator.clipboard.writeText(`Acesse o Congrats! -> ${url}`)
-                .then(() => console.log('Link copiado para a área de transferência.'))
-                .catch((error) => console.error('Erro ao copiar para a área de transferência:', error));
-            }
-          }, 'image/png');
-        }).catch(function(error) {
-          console.error("Erro ao converter div para canvas:", error);
-        });
-      };
+  const shareWithFriends = () => {
+    html2canvas(shareRef.current)
+      .then(function (canvas) {
+        canvas.toBlob(function (blob) {
+          const file = new File([blob], "Congrats-Presente.png", {
+            type: "image/png",
+          });
+
+          const shareData = {
+            files: [file],
+            title: "Meu presente",
+          };
+          if (navigator.share) {
+            navigator
+              .share(shareData)
+              .then(() => console.log("Presente compartilhado com sucesso!"))
+              .catch((error) => console.log("Erro ao compartilhar:", error));
+          } else {
+            console.log("API não suportada.");
+
+            // Fallback para navegadores que não suportam a API de compartilhamento
+            const url = window.location.href;
+            navigator.clipboard
+              .writeText(`Acesse o Congrats! -> ${url}`)
+              .then(() =>
+                console.log("Link copiado para a área de transferência.")
+              )
+              .catch((error) =>
+                console.error(
+                  "Erro ao copiar para a área de transferência:",
+                  error
+                )
+              );
+          }
+        }, "image/png");
+      })
+      .catch(function (error) {
+        console.error("Erro ao converter div para canvas:", error);
+      });
+  };
 
   return (
     <div className="flex items-center flex-col space-y-2">
-        <p className="text-center font-zig pt-6">Que tal compartilhar com seus amigos?</p>
+      <p className="text-center font-zig pt-6">
+        Que tal compartilhar com seus amigos?
+      </p>
       <div
         ref={shareRef}
         className="relative h-[400px] w-[280px] flex flex-col justify-between pb-4 items-center rounded-lg bg-gradient-to-t from-[#000] to-[#292929] border-redHighlight border-8"
@@ -47,7 +66,7 @@ export default function ShareCard({senderName, receiverName, pictures, title}) {
         <p className="w-full text-xs py-2 font-garet break-words text-center">
           {URL}
         </p>
-        <div>
+        <div className="w-[95%]">
           <div className="relative w-full h-24 flex items-center justify-center scale-[0.8]">
             <img
               src="/src/assets/images/balloon-blue.png"
@@ -66,21 +85,24 @@ export default function ShareCard({senderName, receiverName, pictures, title}) {
             />
           </div>
           <div className="relative w-full h-36 flex items-center -space-x-2 justify-center scale-[0.85]">
-            <img
-              src={pictures[0].file}
-              className="-rotate-12 mt-6 w-24 h-32 border-redHighlight border-[6px] shadow-3xl"
-              alt="imagem do usuario 1"
-            />
-            <img
-              src={pictures[1].file}
-              className="z-10 scale-105 w-24 h-32 border-redHighlight  border-[6px] shadow-3xl"
-              alt="imagem do usuario 2"
-            />
-            <img
-              src={pictures[2].file}
-              className="rotate-12 mt-6 w-24 h-32 border-redHighlight  border-[6px] shadow-3xl"
-              alt="imagem do usuario 2"
-            />
+            {pictures.map((item, index) => {
+              if(pictures.length==1) {
+                return (
+                  <img
+                    src={item.file}
+                    className={` w-24 h-32 border-redHighlight border-[6px] shadow-3xl object-cover`}
+                    alt={`imagem do usuario ${index}`}
+                  />
+                );
+              }
+              return (
+                <img
+                  src={item.file}
+                  className={` ${index==0? "-rotate-12 mt-6" : index==pictures.length-1? "rotate-12 mt-6" : "z-10"} object-cover  w-24 h-32 border-redHighlight border-[6px] shadow-3xl`}
+                  alt={`imagem do usuario ${index}`}
+                  />
+              );
+            })}
           </div>
         </div>
         <div className="space-y-3">

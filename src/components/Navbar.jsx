@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import Line from "./Line";
+import giftBoxIcon from "../assets/images/gift-box.png"
 
 export default function Navbar() {
   return (
@@ -11,7 +12,7 @@ export default function Navbar() {
     >
       <img
         className="size-8"
-        src="/src/assets/images/gift-box.png"
+        src={giftBoxIcon}
         alt="gift box icon"
       />
       <h1 className="text-3xl  font-zig">Congrats</h1>

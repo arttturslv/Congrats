@@ -15,7 +15,7 @@ export function ImageView({ image, title, date }) {
 
   return (
     <div
-      className="w-72 h-80 sm:w-80 sm:h-96 place-self-center relative border-redHighlight border-[6px]"
+      className="w-72 shadow-3xl h-80 sm:w-80 sm:h-96 place-self-center relative border-redHighlight border-[6px]"
     >
       <div className="absolute w-full h-[30%] bottom-0 bg-gradient-to-b to-dark from-transparent"></div>
       <img

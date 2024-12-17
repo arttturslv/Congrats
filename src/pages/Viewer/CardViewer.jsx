@@ -4,8 +4,9 @@ import Navbar from "../../components/Navbar";
 import { motion } from "motion/react";
 import Line from "../../components/Line";
 import VideoIframe from "./components/VideoIframe";
+import ShareCard from "./components/ShareCard";
 export default function CardViewer({ card, teste = false }) {
-  console.log(card)
+  
   return (
     <motion.div
       transition={{ ease: "easeInOut" }}
@@ -43,8 +44,14 @@ export default function CardViewer({ card, teste = false }) {
               })}
           </div>
 
-          <VideoIframe URL={card?.youtubeURL}/>
+          <VideoIframe URL={card?.youtubeURL} />
+            
+
+        
         </div>
+
+        <ShareCard pictures={card.pictures} receiverName={card.receiverName} title={card.title} senderName={card.senderName}></ShareCard>
+        
       </div>
     </motion.div>
   );

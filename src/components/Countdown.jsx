@@ -18,7 +18,6 @@ export default function Countdown({ date }) {
   useEffect(() => {
     function updateCountDown() {
       let res = new Date() - dateMet;
-      console.log(res);
 
       if (res < 0) {
         clearInterval(interval);
@@ -45,7 +44,6 @@ export default function Countdown({ date }) {
 
       let segundos = Math.floor(restoMinutos / 1000);
 
-      console.log([anos, mes, dias, horas, minutos, segundos]);
       setTime([anos, mes, dias, horas, minutos, segundos]);
     }
 

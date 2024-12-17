@@ -19,6 +19,12 @@ export default {
         garet: ['Garet', 'sans-serif'],
         garetBold: ['GaretHeavy', 'sans-serif'],
         zig: ['Zig', 'sans-serif'],
+      },
+      boxShadow: {
+        "3xl": "0 4px 4px 0px rgba(0, 0, 0, 0.25)",
+      },
+      dropShadow: {
+        "3xl": "0 4px 4px 0px rgba(0, 0, 0, 0.25)",
       }
     },
   },

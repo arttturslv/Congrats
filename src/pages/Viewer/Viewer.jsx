@@ -7,6 +7,7 @@ import Auth from "./Authentication";
 import Introduction from "./Introduction";
 import CardViewer from "./CardViewer";
 import arrowIcon from "../../assets/images/arrow.png"
+import giftBoxIcon from "../../assets/images/gift-box.png"
 
 export default function Viewer() {
   const { id, passKey } = useParams();
@@ -72,7 +73,7 @@ export default function Viewer() {
       <div className="space-y-2 text-center flex justify-center items-center h-screen flex-col">
         <img
               className={`size-32`}
-              src="./src/assets/images/gift-box.png"
+              src={giftBoxIcon}
               alt="caixa de presente"
             ></img>
         <p className=" text-light animate-pulse">Procurando por presentes</p>

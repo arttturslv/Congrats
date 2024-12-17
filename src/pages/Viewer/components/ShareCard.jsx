@@ -3,6 +3,11 @@ import html2canvas from "html2canvas";
 import Line from "../../../components/Line";
 import CustomButton from "../../../components/CustomButton";
 
+import giftBoxIcon from "../../../assets/images/gift-box.png"
+import ballonBlue from "../../../assets/images/balloon-blue.png"
+import ballonRed from "../../../assets/images/balloon-red.png"
+import ballonYellow from "../../../assets/images/balloon-yellow.png"
+
 export default function ShareCard({
   senderName,
   receiverName,
@@ -69,17 +74,17 @@ export default function ShareCard({
         <div className="w-[95%]">
           <div className="relative w-full h-24 flex items-center justify-center scale-[0.8]">
             <img
-              src="/src/assets/images/balloon-blue.png"
+              src={ballonBlue}
               className="w-24 absolute left-[10%] top-2 drop-shadow-sm"
               alt="balão azul"
             />
             <img
-              src="/src/assets/images/balloon-yellow.png"
+              src={ballonYellow}
               className="w-24 absolute left-[30%] top-4 drop-shadow-sm"
               alt="balão amarelo"
             />
             <img
-              src="/src/assets/images/balloon-red.png"
+              src={ballonRed}
               className="w-24 absolute right-[10%] top-0 drop-shadow-sm"
               alt="balão vermelho"
             />
@@ -107,7 +112,7 @@ export default function ShareCard({
         </div>
         <div className="space-y-3">
           <img
-            src="/src/assets/images/gift-box.png"
+            src={giftBoxIcon}
             alt="caixa de presentes"
             className="size-6 absolute left-2 bottom-2"
           />

@@ -1,10 +1,13 @@
 import { div } from "motion/react-client";
 import { useRef, useState, useEffect } from "react";
+import Line from "./Line";
 
-export default function Countdown({date}) {
+export default function Countdown({ date }) {
   const dateMet = new Date(date);
 
   const [time, setTime] = useState(0);
+  const [time2, setTime2] = useState(0);
+
   const [distanceInMili, setDistanceInMili] = useState(0);
 
   const SEC = 1000;
@@ -16,7 +19,7 @@ export default function Countdown({date}) {
     function updateCountDown() {
       let res = new Date() - dateMet;
       console.log(res);
-      
+
       if (res < 0) {
         clearInterval(interval);
         console.warn("Saindo do countdown");
@@ -25,11 +28,11 @@ export default function Countdown({date}) {
 
       setDistanceInMili(res);
 
-      let anos = Math.floor(res / (365.25 * 24 * 60 * 60 * 1000)); 
-      let restoAno = res % (365.25 * 24 * 60 * 60 * 1000); 
+      let anos = Math.floor(res / (365.25 * 24 * 60 * 60 * 1000));
+      let restoAno = res % (365.25 * 24 * 60 * 60 * 1000);
 
-      let mes = Math.floor(restoAno / (12 * 24 * 60 * 60 * 1000));
-      let restoMes = restoAno % (12 * 24 * 60 * 60 * 1000);
+      let mes = Math.floor(restoAno / (30.42 * 24 * 60 * 60 * 1000)); // Média de dias no mês
+      let restoMes = restoAno % (30.42 * 24 * 60 * 60 * 1000);
 
       let dias = Math.floor(restoMes / (24 * 60 * 60 * 1000));
       let restoDias = restoMes % (24 * 60 * 60 * 1000);
@@ -40,9 +43,9 @@ export default function Countdown({date}) {
       let minutos = Math.floor(restoHoras / (60 * 1000));
       let restoMinutos = restoHoras % (60 * 1000);
 
-      let segundos = Math.floor(restoMinutos / (1000));
+      let segundos = Math.floor(restoMinutos / 1000);
 
-      console.log([anos, mes, dias, horas, minutos, segundos])
+      console.log([anos, mes, dias, horas, minutos, segundos]);
       setTime([anos, mes, dias, horas, minutos, segundos]);
     }
 
@@ -52,19 +55,22 @@ export default function Countdown({date}) {
   }, []);
 
   return (
-    date!=null && distanceInMili > 0 && (
+    date != null &&
+    distanceInMili > 0 && (
       <div>
-        <h3>Juntos a:</h3>
+        <h3 className="font-zig">Nos conhecemos a:</h3>
         <div className="text-xs flex flex-wrap">
-          {time[0] > 0 ? <p className="pr-2">{time[0]} anos,</p> : null} 
-          {time[1] > 0 || time[0] > 0 ? <p className="pr-2">{time[1]} meses,</p> : null} 
-          <p className="pr-2">{time[2]} dias,</p> 
-          <p className="pr-2">{time[3]} horas,</p> 
+          {time[0] > 0 ? <p className="pr-2">{time[0]} anos,</p> : null}
+          {time[1] > 0 || time[0] > 0 ? (
+            <p className="pr-2">{time[1]} meses,</p>
+          ) : null}
+          <p className="pr-2">{time[2]} dias,</p>
+          <p className="pr-2">{time[3]} horas,</p>
           <p className="pr-2">{time[4]} minutos,</p>
-          <p className="pr-2">{time[5]} segundos</p> 
+          <p className="pr-2">{time[5]} segundos</p>
         </div>
+        <Line></Line>
       </div>
     )
   );
-  
-}  
+}

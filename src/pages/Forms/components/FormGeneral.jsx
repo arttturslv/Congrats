@@ -55,7 +55,7 @@ export default function FormGeneral({
   }
 
   return (
-    <div className="space-y-2">
+    <div className="space-y-2 ">
       <CustomInput
         label="Título*"
         type="text"

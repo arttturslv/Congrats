@@ -76,7 +76,7 @@ export default function Create() {
     pictures: images,
     receiverName: receiverName,
     senderName: senderName,
-    title: title
+    title: title,
   };
 
   const formParts = [
@@ -96,33 +96,35 @@ export default function Create() {
     />,
     <FormImages images={images} setImages={setImages} />,
 
-    <CardViewer card={cards} teste={true}/>,
+    <CardViewer card={cards} teste={true} />,
   ];
 
   return (
-    <div className="px-5 h-[100dvh] max-w-[600px] flex flex-col place-self-center">
-      <Navbar></Navbar>
+    <div className="overflow-x-hidden max-w-[600px] flex flex-col place-self-center">
+      <div className=" px-4 overflow-x-hidden">
+        <Navbar></Navbar>
 
-      {!shareInformation && (
-        <>
-          <HeaderProgress index={formIndex}></HeaderProgress>
-          <div id="form-creation ">
-            <form ref={Form} className="space-y-6 my-4">
-              {formParts[formIndex]}
-              {showRightButtons(
-                formIndex,
-                sendForm,
-                handleNextForm,
-                handlePreviousForm
-              )}
-            </form>
-          </div>
-        </>
-      )}
+        {!shareInformation && (
+          <>
+            <HeaderProgress index={formIndex}></HeaderProgress>
+            <div id="form-creation ">
+              <form ref={Form} className="space-y-6 my-4">
+                {formParts[formIndex]}
+                {showRightButtons(
+                  formIndex,
+                  sendForm,
+                  handleNextForm,
+                  handlePreviousForm
+                )}
+              </form>
+            </div>
+          </>
+        )}
 
-      {shareInformation && (
-        <ShareInformation data={shareInformation}></ShareInformation>
-      )}
+        {shareInformation && (
+          <ShareInformation data={shareInformation}></ShareInformation>
+        )}
+      </div>
     </div>
   );
 }

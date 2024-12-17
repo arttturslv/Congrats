@@ -31,7 +31,7 @@ export default function FormImages({ images, setImages }) {
 
 function formImageIndividual(item, index, changeImagesInformation, images) {
   return (
-    <div  className="space-y-2">
+    <div  className="space-y-2 ">
       <ImageView
         title={item.title}
         key={index}

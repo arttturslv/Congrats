@@ -7,7 +7,7 @@
   font-weight: 400;
 
   font-family: 'Garet';
-  src: url('/src/assets/fonts/Garet-Book.ttf') format('truetype');
+  src: url('./assets/fonts/Garet-Book.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
   
@@ -27,21 +27,21 @@
 
 @font-face {
   font-family: 'Garet';
-  src: url('/src/assets/fonts/Garet-Book.ttf') format('truetype');
+  src: url('./assets/fonts/Garet-Book.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'GaretBold';
-  src: url('/src/assets/fonts/Garet-Heavy.ttf') format('truetype');
+  src: url('./assets/fonts/Garet-Heavy.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Zig';
-  src:url('./assets/fonts/zig.ttf') format('ttf');
+  src:url('./assets/fonts/zig.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
   letter-spacing: 1px;

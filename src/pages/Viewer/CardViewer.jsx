@@ -11,7 +11,7 @@ export default function CardViewer({ card, teste = false }) {
     <motion.div
       transition={{ ease: "easeInOut" }}
       animate={{ opacity: [0, 1] }}
-      className="min-h-[100dvh] max-w-[402px] overflow-x-hidden flex flex-col place-self-center pb-16"
+      className="max-w-[402px] overflow-x-hidden flex flex-col flex-1 place-self-center pb-16"
     >
       <div className={`${!teste && "px-4"}`}>
         {!teste && <Navbar></Navbar>}

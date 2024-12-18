@@ -57,7 +57,7 @@ option {
   color: #b6b4b4;
 }
 
-#files, #dateTimeMetF, #imageDate0, #imageDate1, #imageDate2 {
+#files, #dateMet, #imageDate0, #imageDate1, #imageDate2 {
   font-size: 0.875rem;
   padding-top: 0.40rem;
 }

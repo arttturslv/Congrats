@@ -1,16 +1,7 @@
 const API = import.meta.env.VITE_API;
 
-export async function postCard(title, sender, receiver, dateMet, pictures, isLocked, youtubeURL) {
+export async function postCard(data) {
 
-    const data = {
-        title:title, 
-        senderName: sender,
-        receiverName: receiver,
-        dateMet:dateMet, 
-        pictures:pictures,
-        passKey:isLocked,
-        youtubeURL:youtubeURL,
-    }
     try {
         const response = await fetch(`${API}/create`, {
             method: 'POST',

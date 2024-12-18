@@ -1,70 +1,69 @@
-import { useState } from "react";
-import { compressImage } from "../../../hooks/Images";
+import { useRef } from "react";
 import CustomInput from "../../../components/CustomInput";
 import Line from "../../../components/Line";
+import ImagesInputPreview from "./ImagesInputPreview";
 
 export default function FormGeneral({
-  title,
-  setTitle,
-  senderName,
-  setSenderName,
-  setReceiverName,
-  receiverName,
-  dateMet,
-  setDateMet,
-  setIsLocked,
-  isLocked,
-  setImages,
-  youtubeURL,
-  setYoutubeURL
+  data,
+  setData,
+  localFiles,
+  setLocalFiles,
 }) {
-  const [localFiles, setLocalFiles] = useState('');
+  const multipleInputRef = useRef(null);
+  const individualInputRef = useRef(null);
 
-  async function handleImages(e) {
-    console.log(e.target);
+  const handleChange = (e) => {
+    const { name, value } = e.target;
 
-    if (!e.target.files[0]) {
-      console.warn("Nenhuma imagem selecionada.");
-      return;
+    setData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  function imageUpload(e, index) {
+    if (!e.target.files) console.error("Imagem selecionada não é valida.");
+
+    if (!index) {
+      const files = Array.from(e.target.files).slice(0, 3);
+      setLocalFiles(files);
+    } else {
+      let prevLocalFiles = [...localFiles];
+      prevLocalFiles[index] = e.target.files[0];
+      setLocalFiles(prevLocalFiles);
     }
+  }
 
-    setLocalFiles(e.target.value);
-    let inputImages = [];
+  function imageRemove(index) {
+    if (index >= 0) {
+      let prevLocalFiles = [...localFiles];
+      let filesNotRemoved = prevLocalFiles.filter((el, i) => i != index);
 
-    for (let i = 0; i < e.target.files.length && i < 3; i++) {
-      let fileCompressed = await compressImage(e.target.files[i]);
-
-      const fileAs64 = await new Promise((resolve, reject) => {
-        const reader = new FileReader();
-        reader.onloadend = () => resolve(reader.result);
-        reader.onerror = () => reject("Erro ao ler arquivo");
-        reader.readAsDataURL(fileCompressed);
-      });
-
-      if (fileAs64) {
-        inputImages = [
-          ...inputImages,
-          {
-            id: i,
-            file: fileAs64,
-            title: null,
-            date: null,
-            description: null,
-          },
-        ];
+      if (filesNotRemoved.length == 0) {
+        console.log("Todas imagens removidas.");
+        if (multipleInputRef.current) {
+          multipleInputRef.current.value = "";
+        }
+        if (individualInputRef.current) {
+          individualInputRef.current.value = "";
+        }
       }
+
+      setLocalFiles(filesNotRemoved);
+    } else {
+      console.error("Index indisponivel");
     }
-    setImages(inputImages);
   }
 
   return (
-    <div className="space-y-2 ">
+    <div className="space-y-2">
+
       <CustomInput
         label="Título*"
         type="text"
         name="title"
-        value={title}
-        fn={(e) => setTitle(e.target.value)}
+        value={data.title}
+        fn={handleChange}
         placeholder="Título"
         required
       />
@@ -73,8 +72,8 @@ export default function FormGeneral({
         label="Qual seu nome*"
         type="text"
         name="senderName"
-        value={senderName}
-        fn={(e) => setSenderName(e.target.value)}
+        value={data.senderName}
+        fn={handleChange}
         placeholder="Remetente"
         required
       />
@@ -83,32 +82,54 @@ export default function FormGeneral({
         label="Para quem é*"
         type="text"
         name="receiverName"
-        value={receiverName}
-        fn={(e) => setReceiverName(e.target.value)}
+        value={data.receiverName}
+        fn={handleChange}
         placeholder="Destinatário"
         required
       />
 
-      <CustomInput
-        customStyle={"file:hidden"}
-        label="Escolha as fotos (máx 3)*"
-        type="file"
-        name="files"
-        accept="image/*"
-        multiple="3"
-        value={localFiles}
-        fn={(e) => handleImages(e)}
-        required
-      />
+      <>
+        <div className="w-full space-y-1">
+          <p className="font-zig">Escolha as fotos (máx 3)*</p>
+          <label
+            htmlFor="fileInputMultiple"
+            className="flex items-center cursor-pointer h-10 w-full bg-dark border-redHighlight border-4 px-3 py-1"
+          >
+            <p className="text-white text-left text-sm">
+              {localFiles.length <= 0
+                ? "Selecione seus arquivos"
+                : "Arquivos selecionados: " + localFiles.length}
+            </p>
+          </label>
+          <input
+            ref={multipleInputRef}
+            className="opacity-0 absolute w-[0px]"
+            id="fileInputMultiple"
+            type="file"
+            name="fileInputMultiple"
+            accept="image/*"
+            multiple
+            required={localFiles.length<=0}
+            onChange={(e) => imageUpload(e)}
+          />
+        </div>
 
+        <ImagesInputPreview
+          CustomStyle={localFiles.length > 0 ? null : "h-0 opacity-0 absolute pb-0 w-[0px]"}
+          imageRemove={imageRemove}
+          imageUpload={imageUpload}
+          files={localFiles}
+          individualInputRef={individualInputRef}
+        ></ImagesInputPreview>
+      </>
       <Line></Line>
 
       <CustomInput
         label="Quando se conheceram"
         type="datetime-local"
-        name="dateTimeMetF"
-        value={dateMet}
-        fn={(e) => setDateMet(e.target.value)}
+        name="dateMet"
+        value={data.dateMet}
+        fn={handleChange}
         placeholder="dd/mm/aaaa"
       />
 
@@ -116,8 +137,8 @@ export default function FormGeneral({
         label="Video do Youtube"
         type="text"
         name="youtubeURL"
-        value={youtubeURL}
-        fn={(e) => setYoutubeURL(e.target.value)}
+        value={data.youtubeURL}
+        fn={handleChange}
         placeholder="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
       />
 
@@ -125,10 +146,9 @@ export default function FormGeneral({
         <select
           className="w-full  bg-dark border-redHighlight border-4 px-3 py-1 h-10 placeholder:text-sm"
           type="checkbox"
-          name="dateTimeMet"
-          id="isLocked"
-          value={isLocked}
-          onChange={(e) => setIsLocked(e.target.value)}
+          name="isPrivate"
+          value={data.isPrivate}
+          onChange={handleChange}
           placeholder="dd/mm/aaaa"
         >
           <option

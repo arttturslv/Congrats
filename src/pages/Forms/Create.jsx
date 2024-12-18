@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 
 import FormGeneral from "./components/FormGeneral";
 import FormImages from "./components/FormDetails";
@@ -9,49 +9,57 @@ import ShareInformation from "./components/ShareInformation";
 import CustomButton from "../../components/CustomButton";
 import CardViewer from "../Viewer/CardViewer";
 
-import arrowIcon from "../../assets/images/arrow.png"
+import arrowIcon from "../../assets/images/arrow.png";
 
 export default function Create() {
   const Form = useRef();
 
+  const [pictures, setPictures] = useState([]);
+  const [data, setData] = useState({
+    title: "",
+    senderName: "",
+    receiverName: "",
+    dateMet: "",
+    passKey: "",
+    pictures: pictures,
+    isPrivate: false,
+    youtubeURL: "",
+  });
   const [formIndex, setFormIndex] = useState(0);
-  const [title, setTitle] = useState("");
-  const [senderName, setSenderName] = useState("");
-  const [receiverName, setReceiverName] = useState("");
-  const [dateMet, setDateMet] = useState("");
-  const [images, setImages] = useState([]);
-  const [isLocked, setIsLocked] = useState(false);
-  const [youtubeURL, setYoutubeURL] = useState("");
+  const [localFiles, setLocalFiles] = useState([]);
 
-  const [shareInformation, setShareInformation] = useState(null);
+  const [responseReturn, setResponseReturn] = useState(null);
+  const [loadingRequest, setLoadingRequest] = useState(false);
+
+  function updatePictures(newPictures) {
+    setData((prevData) => ({
+      ...prevData,
+      pictures: newPictures,
+    }));
+  }
+
+  useEffect(() => {
+    updatePictures(pictures);
+  }, [pictures]);
 
   async function sendForm(e) {
     e.preventDefault();
 
-    if (shareInformation) {
-      console.log("Já enviei o request.");
-      console.log("shareInformation: ", shareInformation);
+    if (responseReturn) {
+      console.log("Já enviei o request: ", responseReturn);
       return;
     }
+    setLoadingRequest(true);
 
     try {
-      console.log(title, senderName, receiverName, dateMet, youtubeURL);
-      console.dir(images);
+      const response = await postCard(data);
+      setResponseReturn(response);
 
-      const resp = await postCard(
-        title,
-        senderName,
-        receiverName,
-        dateMet,
-        images,
-        isLocked,
-        youtubeURL
-      );
-      setShareInformation(resp);
-
-      console.log(resp);
+      console.log(response);
     } catch (error) {
       console.error(error);
+    } finally {
+      setLoadingRequest(false)
     }
   }
 
@@ -78,36 +86,22 @@ export default function Create() {
     setFormIndex((prev) => prev - 1);
   }
 
-  let cards = {
-    dateMet: dateMet,
-    easyId: "default",
-    pictures: images,
-    receiverName: receiverName,
-    senderName: senderName,
-    title: title,
-    youtubeURL: youtubeURL,
-  };
-
   const formParts = [
     <FormGeneral
-      title={title}
-      setTitle={setTitle}
-      senderName={senderName}
-      setSenderName={setSenderName}
-      receiverName={receiverName}
-      setReceiverName={setReceiverName}
-      dateMet={dateMet}
-      setDateMet={setDateMet}
-      setIsLocked={setIsLocked}
-      isLocked={isLocked}
-      images={images}
-      setImages={setImages}
-      youtubeURL={youtubeURL}
-      setYoutubeURL={setYoutubeURL}
+      setLocalFiles={setLocalFiles}
+      localFiles={localFiles}
+      data={data}
+      setData={setData}
     />,
-    <FormImages images={images} setImages={setImages} />,
 
-    <CardViewer card={cards} teste={true} />,
+    <FormImages
+      pictures={pictures}
+      setPictures={setPictures}
+      updatePictures={updatePictures}
+      files={localFiles}
+    />,
+
+    <CardViewer card={data} teste={true} />
   ];
 
   return (
@@ -115,13 +109,14 @@ export default function Create() {
       <div className=" px-4 overflow-x-hidden">
         <Navbar></Navbar>
 
-        {!shareInformation && (
+        {!responseReturn && (
           <>
             <HeaderProgress index={formIndex}></HeaderProgress>
             <div id="form-creation">
-              <form ref={Form}  className="space-y-6 my-4">
+              <form ref={Form} className="space-y-6 my-4">
                 {formParts[formIndex]}
                 {showRightButtons(
+                  loadingRequest,
                   formIndex,
                   sendForm,
                   handleNextForm,
@@ -132,8 +127,8 @@ export default function Create() {
           </>
         )}
 
-        {shareInformation && (
-          <ShareInformation data={shareInformation}></ShareInformation>
+        {responseReturn && (
+          <ShareInformation data={responseReturn}></ShareInformation>
         )}
       </div>
     </div>
@@ -141,6 +136,7 @@ export default function Create() {
 }
 
 function showRightButtons(
+  loadingRequest,
   formIndex,
   sendForm,
   handleNextForm,
@@ -162,7 +158,10 @@ function showRightButtons(
       )}
 
       {formIndex < 2 && (
-        <CustomButton customStyle={"w-full group"} onClick={(e) => handleNextForm(e)}>
+        <CustomButton
+          customStyle={"w-full group"}
+          onClick={(e) => handleNextForm(e)}
+        >
           <>
             Continuar
             <img
@@ -176,7 +175,12 @@ function showRightButtons(
 
       {formIndex == 2 && (
         <CustomButton customStyle={"w-full group"} onClick={(e) => sendForm(e)}>
-          Salvar
+          {loadingRequest ? 
+            <span className="animate-pulse">Enviando</span>
+          :
+          <span>Salvar</span>
+        }
+          
         </CustomButton>
       )}
     </div>

@@ -23,10 +23,10 @@ export default function ImageCaption({ image, title, date, description, index })
         y,
         opacity,
       }}
-      className="space-y-2 py-4"
+      className="space-y-2 py-2"
     >
       <ImageView title={title} date={date} image={image} />
-      <motion.p className="text-sm tracking-[2px] max-w-[400px] text-justify flex place-self-center">
+      <motion.p className="text-sm tracking-wide max-w-[400px] flex place-self-center">
         {description}
       </motion.p>
     </motion.div>

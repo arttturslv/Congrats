@@ -2,7 +2,7 @@ import { useState, useRef } from "react";
 import QRCode from 'react-qr-code';
 import html2canvas from 'html2canvas';
 
-import shareIcon from "../../../assets/images/download.png";
+import shareIcon from "../../../assets/images/share.png";
 import downloadIcon from "../../../assets/images/download.png"
 
 export default function ShareInformation({ data }) {

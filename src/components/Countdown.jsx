@@ -54,6 +54,8 @@ export default function Countdown({ date }) {
     date != null &&
     distanceInMili > 0 && (
       <div>
+        <Line></Line>
+
         <h3 className="font-zig">Nos conhecemos a:</h3>
         <div className="text-xs flex flex-wrap">
           {time[0] > 0 ? <p className="pr-2">{time[0]} anos,</p> : null}

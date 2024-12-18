@@ -7,7 +7,7 @@ import giftBoxIcon from "../../../assets/images/gift-box.png";
 import ballonBlue from "../../../assets/images/balloon-blue.png";
 import ballonRed from "../../../assets/images/balloon-red.png";
 import ballonYellow from "../../../assets/images/balloon-yellow.png";
-
+import { Link } from "react-router-dom";
 export default function ShareCard({
   senderName,
   receiverName,
@@ -130,13 +130,22 @@ export default function ShareCard({
               className="size-6 absolute left-2 bottom-2"
             />
             <p className="font-zig text-center">
-              {title}, {receiverName}
+              {title}
             </p>
             <p className="font-zig text-center">- {senderName}</p>
           </div>
         </div>
 
+        <div className="space-y-4 flex flex-col items-center">
+
         <CustomButton onClick={shareWithFriends}>COMPARTILHAR</CustomButton>
+        <CustomButton>
+          <Link to={"/create"}>
+              Fazer mensagem
+          </Link>
+        </CustomButton>
+        </div>
+
       </div>
     )
   );

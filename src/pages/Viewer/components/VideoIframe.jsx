@@ -18,7 +18,7 @@ export default function VideoIframe({ URL, teste }) {
         <Line></Line>
       </>
     )
-  } else if(!formataURL(URL) && teste) {
+  } else if(!formataURL(URL) && teste && URL.length>0) {
     return (
       <div>
         <p className="text-sm text-redHighlight">URL inválida ou vídeo não encontrado: "{URL}" *</p>

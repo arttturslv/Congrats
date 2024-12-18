@@ -21,7 +21,7 @@ export default function CardViewer({ card, teste = false }) {
         <div className="space-y-3 ">
           <div className="space-y-0">
             <h3 className="text-lg font-zig">
-              {card.title}, {card.receiverName}!
+              {card.title}
             </h3>
             <h5 className="text-xs">De: {card.senderName}</h5>
           </div>

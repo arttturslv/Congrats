@@ -2,19 +2,13 @@ import { useRef } from "react";
 import html2canvas from "html2canvas";
 import Line from "../../../components/Line";
 import CustomButton from "../../../components/CustomButton";
-
+import shareIcon from "../../../assets/images/share.png";
 import giftBoxIcon from "../../../assets/images/gift-box.png";
 import ballonBlue from "../../../assets/images/balloon-blue.png";
 import ballonRed from "../../../assets/images/balloon-red.png";
 import ballonYellow from "../../../assets/images/balloon-yellow.png";
 import { Link } from "react-router-dom";
-export default function ShareCard({
-  senderName,
-  receiverName,
-  pictures,
-  title,
-  teste,
-}) {
+export default function ShareCard({ senderName, pictures, title, teste }) {
   const URL = window.location.href;
 
   const shareRef = useRef();
@@ -67,7 +61,7 @@ export default function ShareCard({
         </p>
         <div
           ref={shareRef}
-          className="relative h-[400px] w-[280px] flex flex-col justify-between pb-4 items-center rounded-lg bg-gradient-to-t from-[#000] to-[#292929] border-redHighlight border-8"
+          className="relative h-[400px] w-[280px] flex flex-col justify-between pb-4 items-center rounded-lg bg-gradient-to-t from-[#0a0a0a] to-[#292929] border-redHighlight border-8"
         >
           <p className="w-full text-xs py-2 font-garet break-words text-center">
             {URL.replace("https://", "")}
@@ -105,13 +99,15 @@ export default function ShareCard({
                   );
                 }
                 return (
-                  <div className={` ${
-                    index == 0
-                      ? "-rotate-12 z-0 mt-6"
-                      : index == pictures.length - 1
-                      ? "rotate-12 z-0 mt-6"
-                      : "z-10"
-                  } w-24 h-32`}>
+                  <div
+                    className={` ${
+                      index == 0
+                        ? "-rotate-12 z-0 mt-6"
+                        : index == pictures.length - 1
+                        ? "rotate-12 z-0 mt-6"
+                        : "z-10"
+                    } w-24 h-32`}
+                  >
                     <img
                       key={index}
                       src={item.file}
@@ -129,23 +125,27 @@ export default function ShareCard({
               alt="caixa de presentes"
               className="size-6 absolute left-2 bottom-2"
             />
-            <p className="font-zig text-center">
-              {title}
-            </p>
+            <p className="font-zig text-center">{title}</p>
             <p className="font-zig text-center">- {senderName}</p>
           </div>
         </div>
 
-        <div className="space-y-4 flex flex-col items-center">
+        <div className="gap-2 py-4 flex items-center">
+          <CustomButton>
+            <Link to={"/create"}>Criar meu site</Link>
+          </CustomButton>
 
-        <CustomButton onClick={shareWithFriends}>COMPARTILHAR</CustomButton>
-        <CustomButton>
-          <Link to={"/create"}>
-              Fazer mensagem
-          </Link>
-        </CustomButton>
+          <CustomButton
+            onClick={shareWithFriends}
+            customStyle={"  px-3 py-2 pb-2"}
+          >
+            <img
+              className="fill-light size-4 "
+              src={shareIcon}
+              alt="share icon"
+            />
+          </CustomButton>
         </div>
-
       </div>
     )
   );

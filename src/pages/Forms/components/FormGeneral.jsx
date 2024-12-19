@@ -142,12 +142,12 @@ export default function FormGeneral({
         placeholder="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
       />
 
-      <CustomInput label="Privado" name="isLocked">
+      <CustomInput label="Privado" name="passKey">
         <select
           className="w-full  bg-dark border-redHighlight border-4 px-3 py-1 h-10 placeholder:text-sm"
           type="checkbox"
-          name="isPrivate"
-          value={data.isPrivate}
+          name="passKey"
+          value={data.passKey}
           onChange={handleChange}
           placeholder="dd/mm/aaaa"
         >

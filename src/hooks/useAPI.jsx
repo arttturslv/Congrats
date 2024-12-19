@@ -1,7 +1,7 @@
 const API = import.meta.env.VITE_API;
 
 export async function postCard(data) {
-
+    console.dir(data);
     try {
         const response = await fetch(`${API}/create`, {
             method: 'POST',

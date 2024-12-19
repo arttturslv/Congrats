@@ -20,9 +20,8 @@ export default function Create() {
     senderName: "",
     receiverName: "",
     dateMet: "",
-    passKey: "",
     pictures: pictures,
-    isPrivate: false,
+    passKey: false,
     youtubeURL: "",
   });
   const [formIndex, setFormIndex] = useState(0);

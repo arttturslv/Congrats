@@ -6,11 +6,12 @@ export default function CustomInput({
   value,
   placeholder,
   children,
+  required,
   ...rest
 }) {
   return (
     <div className="w-full space-y-1">
-      <label className="font-zig" htmlFor={name}>{label}</label>
+      <label className="font-zig" htmlFor={name}>{label}{required && <strong className="text-[#ff702e]">*</strong>}</label>
       {children ? (
         children
       ) : (
@@ -21,6 +22,7 @@ export default function CustomInput({
           value={value}
           onChange={fn}
           placeholder={placeholder}
+          required={required}
           {...rest}
         />
       )}

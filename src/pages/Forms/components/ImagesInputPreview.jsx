@@ -3,7 +3,7 @@ import { fileToURL } from "../../../hooks/Images";
 export default function ImagesInputPreview({ files, imageUpload, imageRemove, CustomStyle, individualInputRef }) {
   const array = [0, 1, 2];
   return (
-    <div className={` w-full ${CustomStyle} relative opacity-1 pb-6 flex justify-around transition-all h-auto max-w-[470px]`}>
+    <div className={`${CustomStyle} flex justify-around transition-all max-w-[470px]`}>
       {array.map((file, index) => {
         return (
           <div key={index} className="w-[30%] h-[40vw] flex flex-col max-h-48 border-redHighlight border-4 ">
@@ -33,7 +33,7 @@ export default function ImagesInputPreview({ files, imageUpload, imageRemove, Cu
                 </label>
                 <input
                   ref={individualInputRef}
-                  className="opacity-0 absolute"
+                  className="opacity-1 absolute h-[0px] w-[0px] -z-50"
                   id="fileInputIndividual"
                   type="file"
                   name="fileInputIndividual"

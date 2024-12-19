@@ -59,7 +59,7 @@ export default function FormGeneral({
     <div className="space-y-2">
 
       <CustomInput
-        label="Título*"
+        label="Título"
         type="text"
         name="title"
         value={data.title}
@@ -69,7 +69,7 @@ export default function FormGeneral({
       />
 
       <CustomInput
-        label="Qual seu nome*"
+        label="Qual seu nome"
         type="text"
         name="senderName"
         value={data.senderName}
@@ -79,7 +79,7 @@ export default function FormGeneral({
       />
 
       <CustomInput
-        label="Para quem é*"
+        label="Para quem é"
         type="text"
         name="receiverName"
         value={data.receiverName}
@@ -90,7 +90,7 @@ export default function FormGeneral({
 
       <>
         <div className="w-full space-y-1">
-          <p className="font-zig">Escolha as fotos (máx 3)*</p>
+          <p className="font-zig">Escolha as fotos (máx 3)<strong className="text-[#ff702e]">*</strong></p>
           <label
             htmlFor="fileInputMultiple"
             className="flex items-center cursor-pointer h-10 w-full bg-dark border-redHighlight border-4 px-3 py-1"
@@ -103,7 +103,7 @@ export default function FormGeneral({
           </label>
           <input
             ref={multipleInputRef}
-            className="opacity-0 absolute w-[0px]"
+            className="opacity-1 absolute h-[0px] w-[0px] -z-50"
             id="fileInputMultiple"
             type="file"
             name="fileInputMultiple"
@@ -115,7 +115,7 @@ export default function FormGeneral({
         </div>
 
         <ImagesInputPreview
-          CustomStyle={localFiles.length > 0 ? null : "h-0 opacity-0 absolute pb-0 w-[0px]"}
+          CustomStyle={localFiles.length > 0 ? "relative  w-full opacity-1 pb-4 " : "h-[0px] opacity-0 absolute pb-0 w-[0px]"}
           imageRemove={imageRemove}
           imageUpload={imageUpload}
           files={localFiles}
@@ -142,12 +142,12 @@ export default function FormGeneral({
         placeholder="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
       />
 
-      <CustomInput label="Privado" name="isLocked">
+      <CustomInput label="Privado" name="passKey">
         <select
           className="w-full  bg-dark border-redHighlight border-4 px-3 py-1 h-10 placeholder:text-sm"
           type="checkbox"
-          name="isPrivate"
-          value={data.isPrivate}
+          name="passKey"
+          value={data.passKey}
           onChange={handleChange}
           placeholder="dd/mm/aaaa"
         >

@@ -4,32 +4,32 @@ export default function About() {
       <div className="space-y-4">
         <h1 className="text-2xl  font-zig">Como funciona?</h1>
         <div className="space-y-3">
-          <p className="">
+          <p className=" text-sm">
             Criar uma lembrança única é simples! Basta preencher alguns campos e
             adicionar detalhes personalizados:
           </p>
-          <ul className="space-y-1">
-          <p className="font-zig">Campos obrigatórios:</p>
+          <ul className="space-y-1 text-sm">
+          <p className="font-zig  text-base">Campos obrigatórios:</p>
             
-            <li>Título: Dê um nome à sua criação.</li>
+            <li><strong className="font-garetBold">Título:</strong> Dê um nome à sua criação.</li>
             <li>
-              Nome do remetente e do destinatário: Informe quem está enviando e
+            <strong className="font-garetBold">Nome do remetente e do destinatário:</strong> Informe quem está enviando e
               quem vai receber.
             </li>
             <li>
-              Imagem e descrição: Adicione imagens e escreva uma descrição para
+            <strong className="font-garetBold">Imagem e descrição:</strong> Adicione imagens e escreva uma descrição para
               cada uma delas.
             </li>
           </ul>
-          <ul className="space-y-1">
-            <p className="font-zig">Campos opcionais:</p>
+          <ul className="space-y-1 text-sm">
+            <p className="font-zig text-base">Campos opcionais:</p>
             <li>
-              <strong>Data em que conheceu a pessoa:</strong> Adicione a data para tornar a
+              <strong className="font-garetBold">Data em que conheceu a pessoa:</strong> Adicione a data para tornar a
               lembrança mais pessoal.
             </li>
-            <li>Privacidade: Escolha se a criação será pública ou privada.</li>
+            <li><strong className="font-garetBold">Privacidade:</strong> Escolha se a criação será pública ou privada.</li>
             <li>
-              Data da foto e título da foto: Se desejar, adicione a data e um
+            <strong className="font-garetBold">Data da foto e título da foto:</strong> Se desejar, adicione a data e um
               título para cada imagem.
             </li>
           </ul>

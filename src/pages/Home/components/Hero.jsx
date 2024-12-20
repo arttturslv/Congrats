@@ -30,10 +30,10 @@ export default function Hero() {
           Transforme momentos especiais em lembranças únicas!
         </p>
         <p className="text-sm">
-          Mais de {quantityOfUsers} pessoas já usaram nosso site para celebrar
+          Mais de <strong className="font-garetBold">{quantityOfUsers} pessoas</strong> já usaram nosso site para <strong className="font-garetBold">celebrar </strong>
           ocasiões como aniversários, amizades, Natal e outros momentos
           marcantes. Adicione fotos, mensagens e detalhes personalizados para
-          tornar cada fase ainda mais inesquecível.
+          <strong className="font-garetBold"> tornar cada fase ainda mais inesquecível.</strong>
         </p>
         <CustomButton onClick={()=>navigate('/create')}>
           Criar minha mensagem

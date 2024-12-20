@@ -61,7 +61,7 @@ export default function ShareCard({ senderName, pictures, title, teste }) {
         </p>
         <div
           ref={shareRef}
-          className="relative h-[400px] w-[280px] flex flex-col justify-between pb-4 items-center rounded-lg bg-gradient-to-t from-[#0a0a0a] to-[#292929] border-redHighlight border-8"
+          className="relative h-[400px] w-[280px] flex flex-col justify-between pb-4 items-center bg-gradient-to-t from-[#0a0a0a] to-[#292929] border-redHighlight border-8"
         >
           <p className="w-full text-xs py-2 font-garet break-words text-center">
             {URL.replace("https://", "")}
@@ -88,32 +88,20 @@ export default function ShareCard({ senderName, pictures, title, teste }) {
               {pictures.map((item, index) => {
                 if (pictures.length == 1) {
                   return (
-                    <div className="w-24 h-32">
-                      <img
-                        key={index}
-                        src={item.file}
-                        className={`w-[105%] h-[105%] border-redHighlight border-[6px] shadow-3xl object-cover`}
-                        alt={`imagem do usuario ${index}`}
-                      />
-                    </div>
+                    <div style={{backgroundImage: `url(${item.file})`}}  className={`w-24 h-32 bg-cover bg-center border-redHighlight border-[6px] shadow-3xl` }/>
                   );
                 }
                 return (
                   <div
+                  style={{backgroundImage: `url(${item.file})`}}
                     className={` ${
                       index == 0
                         ? "-rotate-12 z-0 mt-6"
                         : index == pictures.length - 1
                         ? "rotate-12 z-0 mt-6"
                         : "z-10"
-                    } w-24 h-32`}
+                    } w-24 h-32 bg-cover bg-center border-redHighlight border-[6px] shadow-3xl`}
                   >
-                    <img
-                      key={index}
-                      src={item.file}
-                      className="object-cover w-[105%] h-[100%] border-redHighlight border-[6px] shadow-3xl"
-                      alt={`imagem do usuario ${index}`}
-                    />
                   </div>
                 );
               })}

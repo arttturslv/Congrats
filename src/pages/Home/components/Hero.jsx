@@ -1,45 +1,32 @@
 import CustomButton from "../../../components/CustomButton";
-import { useState, useEffect } from "react";
-import { getCardQuantity } from "../../../hooks/useAPI";
-import { useNavigate } from 'react-router-dom';
+
+import { useNavigate } from "react-router-dom";
 
 export default function Hero() {
-  const [quantityOfUsers, setQuantityOfUsers] = useState(null);
   const navigate = useNavigate(); // Hook para navegação
-
-  useEffect(() => {
-    const fetchQuantityUsers = async () => {
-      try {
-        const data = await getCardQuantity();
-        console.log(data);
-        setQuantityOfUsers(data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    if (quantityOfUsers == null) {
-      fetchQuantityUsers();
-    }
-  }, []);
 
   return (
     <div className="w-full sm:flex justify-between ">
-      <div className="sm:w-[55%] space-y-4">
-        <h1 className="text-3xl  font-zig">Um novo jeito de comemorar</h1>
-        <p className="text-sm">
-          Transforme momentos especiais em lembranças únicas!
+      <div className="sm:w-[55%] space-y-3 flex-col flex justify-center">
+        <h1 className="text-3xl font-zig">Um novo jeito de comemorar</h1>
+        <p>Transforme momentos especiais em lembranças únicas!</p>
+        <p>
+          Com nosso app,<strong className="font-garetBold"> criar uma mensagem personalizada</strong>  é rápido e fácil! Para
+          começar, basta clicar no botão abaixo, adicionar suas informações e
+          pronto. Você pode <strong className="font-garetBold">incluir fotos, textos e até mesmo vídeo no YouTube</strong>, tornando
+          sua mensagem única e inesquecível. Depois, <strong className="font-garetBold">compartilhe </strong> com quem você
+          desejar, por meio de um link ou QR Code, e celebre seus momentos
+          especiais de forma única.
+          <strong className="font-garetBold">
+            {" "}
+            tornar cada fase ainda mais inesquecível.
+          </strong>
         </p>
-        <p className="text-sm">
-          Mais de <strong className="font-garetBold">{quantityOfUsers} pessoas</strong> já usaram nosso site para <strong className="font-garetBold">celebrar </strong>
-          ocasiões como aniversários, amizades, Natal e outros momentos
-          marcantes. Adicione fotos, mensagens e detalhes personalizados para
-          <strong className="font-garetBold"> tornar cada fase ainda mais inesquecível.</strong>
-        </p>
-        <CustomButton onClick={()=>navigate('/create')}>
+        <CustomButton customStyle={"max-w-72"} onClick={() => navigate("/create")}>
           Criar minha mensagem
         </CustomButton>
       </div>
-      <div className="sm:w-[40%] flex justify-center max-sm:pt-8">
+      <div className="sm:w-[40%] flex justify-center items-center max-sm:pt-8">
         <img
           className="size-72 aspect-square"
           src="https://i.imgur.com/s3IrqQW.png"

@@ -3,6 +3,7 @@ import Navbar from "../../components/Navbar";
 import Footer from "./components/Footer";
 import Hero from "./components/Hero";
 import About from "./components/About";
+import Why from "./components/Why";
 
 export default function Home() {
   return (
@@ -13,11 +14,10 @@ export default function Home() {
     >
       <Navbar></Navbar>
 
-      <div className="space-y-12 sm:pt-12 pt-2 pb-2">
-        <Hero></Hero>
-
-        <About></About>
-
+      <div className="space-y-6 sm:pt-6 pt-2 pb-2">
+        <Hero/>
+        <About/>
+        <Why/>
         <Footer></Footer>
       </div>
     </motion.div>

@@ -1,7 +1,6 @@
 const API = import.meta.env.VITE_API;
 
 export async function postCard(data) {
-    console.dir(data);
     try {
         const response = await fetch(`${API}/create`, {
             method: 'POST',
@@ -24,7 +23,6 @@ export async function postCard(data) {
 }
 
 export async function getCard(easyId, passKey) {
-    console.trace("show me")
     try {
         const response = await fetch(`${API}/${easyId}/${passKey}`);
 
@@ -37,8 +35,6 @@ export async function getCard(easyId, passKey) {
 
         let responseJSON = await response.json();
         let {status, data} = responseJSON;
-
-        console.log(responseJSON)
 
         if(status=="pending") {
             let res = data.about;

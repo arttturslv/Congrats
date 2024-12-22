@@ -25,7 +25,6 @@ export default function CardViewer({ card, teste = false }) {
             {card.pictures &&
               card.pictures.map((item, index) => {
                 return (
-                  <>
                     <ImageCaption
                       title={item?.title}
                       date={item?.date}
@@ -33,7 +32,6 @@ export default function CardViewer({ card, teste = false }) {
                       image={item?.file}
                       key={index}
                     ></ImageCaption>
-                  </>
                 );
               })}
           </div>

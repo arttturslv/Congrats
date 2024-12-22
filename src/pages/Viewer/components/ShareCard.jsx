@@ -88,18 +88,19 @@ export default function ShareCard({ senderName, pictures, title, teste }) {
               {pictures.map((item, index) => {
                 if (pictures.length == 1) {
                   return (
-                    <div style={{backgroundImage: `url(${item.file})`}}  className={`w-24 h-32 bg-cover bg-center border-redHighlight border-[6px] shadow-3xl` }/>
+                    <div key={index} style={{backgroundImage: `url(${item.file})`}}  className={`w-24 h-32 bg-cover bg-center border-redHighlight border-[6px] shadow-3xl` }/>
                   );
                 }
                 return (
                   <div
+                  key={index}
                   style={{backgroundImage: `url(${item.file})`}}
                     className={` ${
                       index == 0
                         ? "-rotate-12 z-0 mt-6"
                         : index == pictures.length - 1
                         ? "rotate-12 z-0 mt-6"
-                        : "z-10"
+                        : "z-50"
                     } w-24 h-32 bg-cover bg-center border-redHighlight border-[6px] shadow-3xl`}
                   >
                   </div>

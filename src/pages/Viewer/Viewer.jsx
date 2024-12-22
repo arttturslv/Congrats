@@ -28,10 +28,8 @@ export default function Viewer() {
       try {
         let {status, res} = await getCard(id, userPassKey);
         setCardStatus(status); 
-        console.log("TENTANDO")
 
         if(status=="success") {
-          console.log("SUCESS")
           setCard(res);
         }
       } catch (error) {

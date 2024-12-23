@@ -68,7 +68,7 @@ function formImageIndividual(item, index, changeImagesInformation) {
       />
 
       <CustomInput
-        label="Título da foto*"
+        label="Título da foto"
         type="text"
         name={"imageTitle" + index}
         value={item.title}
@@ -84,7 +84,7 @@ function formImageIndividual(item, index, changeImagesInformation) {
         placeholder="Adicione para dar mais detalhes"
       />
 
-      <CustomInput label="Descrição*" name={"imageDescription" + index}>
+      <CustomInput required label="Descrição" name={"imageDescription" + index}>
         <textarea
           className="w-full h-24 bg-dark border-redHighlight border-4 px-3 py-1 placeholder:text-sm"
           type="text"

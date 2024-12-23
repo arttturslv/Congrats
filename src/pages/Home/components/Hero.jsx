@@ -6,31 +6,24 @@ export default function Hero() {
   const navigate = useNavigate(); // Hook para navegação
 
   return (
-    <div className="w-full sm:flex justify-between ">
-      <div className="sm:w-[55%] space-y-3 flex-col flex justify-center">
-        <h1 className="text-3xl font-zig">Um novo jeito de comemorar</h1>
-        <p>Transforme momentos especiais em lembranças únicas!</p>
+    <div className="sm:flex justify-between  mx-4 md:text-mx-8 lg:mx-16 ">
+      <div className="sm:w-[55%] pt-2 space-y-3 flex-col flex justify-center">
+        <h1 className="text-3xl md:text-4xl lg:text-5xl  font-zig">Um novo jeito de comemorar</h1>
         <p>
-          Com nosso app,<strong className="font-garetBold"> criar uma mensagem personalizada</strong>  é rápido e fácil! Para
-          começar, basta clicar no botão abaixo, adicionar suas informações e
-          pronto. Você pode <strong className="font-garetBold">incluir fotos, textos e até mesmo vídeo no YouTube</strong>, tornando
-          sua mensagem única e inesquecível. Depois, <strong className="font-garetBold">compartilhe </strong> com quem você
-          desejar, por meio de um link ou QR Code, e celebre seus momentos
-          especiais de forma única.
-          <strong className="font-garetBold">
-            {" "}
-            tornar cada fase ainda mais inesquecível.
-          </strong>
+        Quem cria e quem recebe vivenciam momentos únicos, podendo compartilhar essas lembranças nas redes sociais de forma especial!
         </p>
-        <CustomButton customStyle={"max-w-72"} onClick={() => navigate("/create")}>
+        <CustomButton
+          customStyle={"max-w-72 max-sm:flex max-sm:self-center shadow-lg shadow-redHighlight/40"}
+          onClick={() => navigate("/create")}
+        >
           Criar minha mensagem
         </CustomButton>
       </div>
-      <div className="sm:w-[40%] flex justify-center items-center max-sm:pt-8">
+      <div className="sm:w-[48%] pt-4 flex justify-center items-center">
         <img
-          className="size-72 aspect-square"
-          src="https://i.imgur.com/s3IrqQW.png"
-          alt=""
+          className="drop-shadow-xl	"
+          src="https://i.imgur.com/0OsW3a9.png"
+          alt="mockups do site"
         />
       </div>
     </div>

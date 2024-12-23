@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
-    <div className="space-y-4">
+    <div className="space-y-4 pb-2">
       <Line></Line>
 
       <div className=" sm:flex justify-between gap-8 max-sm:space-y-2">

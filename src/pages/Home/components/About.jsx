@@ -1,52 +1,57 @@
-import Line from "../../../components/Line";
 export default function About() {
   return (
-    <div className="w-full flex justify-between ">
-      <div className="text-base">
-        <h1 className="text-xl  font-zig">Como funciona?</h1>
-        <div className="space-y-3">
-          <p className="">
-            Criar uma lembrança única é simples! Basta preencher alguns campos e
-            adicionar detalhes personalizados:
-          </p>
-          <div>
-            <p className="font-zig  text-1xl">Campos obrigatórios:</p>
-
-            <ul className="pl-3">
-              <li>
-                <strong className="font-garetBold">Título:</strong> Dê um nome à
-                sua criação.
-              </li>
-              <li>
-                <strong className="font-garetBold">Nomes:</strong> Informe quem
-                está enviando e quem vai receber.
-              </li>
-              <li>
-                <strong className="font-garetBold">Imagens</strong> Adicione
-                imagens e escreva uma descrição para cada uma delas.
-              </li>
-            </ul>
+    <div className="w-full  space-y-8 justify-between transition-all duration-300 ">
+      <div className="text-base space-y-4">
+        <h1 className="text-2xl sm:text-3xl font-zig">Como funciona?</h1>
+        <div className="flex gap-6 flex-wrap pl-4">
+          <div className="bg-gradient-to-br from-greyHighlight/40 px-1 max-sm:px-4 hover:bg-redHighlight/10 to-redHighlight/20 flex flex-col items-center justify-between transition-all duration-200 overflow-hidden rounded-lg  h-[20vw] w-[20vw]  min-h-40 min-w-40 max-w-64 max-h-64 ">
+            <p className="font-zig  pt-6  text-center  text-sm max-sm:text-1xl ">
+              Preencha os dados
+            </p>
+            <img
+              className="sm:h-[15vw] h-[40vw] aspect-square object-cover"
+              src="https://i.imgur.com/ROrVwop.png"
+              alt=""
+              srcset=""
+            />
           </div>
-          <div>
-            <p className="font-zig text-1xl">Campos opcionais:</p>
 
-            <ul className="pl-3">
-              <li>
-                <strong className="font-garetBold">Data:</strong> Adicione a
-                data para tornar a lembrança mais pessoal.
-              </li>
-              <li>
-                <strong className="font-garetBold">Privacidade:</strong> Escolha
-                se a criação será pública ou privada.
-              </li>
-              <li>
-                <strong className="font-garetBold">Detalhes da foto:</strong> Se
-                desejar, adicione a data e um título para cada imagem.
-              </li>
-            </ul>
+          <div className="bg-gradient-to-br from-greyHighlight/40 px-1 max-sm:px-4 hover:bg-redHighlight/10 to-redHighlight/20 flex flex-col items-center justify-between transition-all duration-200 overflow-hidden rounded-lg  h-[20vw] w-[20vw]  min-h-40 min-w-40 max-w-64 max-h-64 ">
+            <p className="font-zig  pt-6  text-center  text-sm max-sm:text-1xl ">
+              Adicione detalhes
+            </p>
+            <img
+              className="sm:h-[15vw] h-[40vw] aspect-square object-cover"
+              src="https://i.imgur.com/MwMBNFM.png"
+              alt=""
+              srcset=""
+            />
+          </div>
+
+          <div className="bg-gradient-to-br from-greyHighlight/40 px-1 max-sm:px-4 hover:bg-redHighlight/10 to-redHighlight/20 flex flex-col items-center justify-between transition-all duration-200 overflow-hidden rounded-lg  h-[20vw] w-[20vw]  min-h-40 min-w-40 max-w-64 max-h-64 ">
+            <p className="font-zig  pt-6  text-center  text-sm max-sm:text-1xl ">
+              Confira os dados
+            </p>
+            <img
+              className="sm:h-[15vw] h-[40vw] aspect-square object-cover"
+              src="https://i.imgur.com/B9Jdjzy.png"
+              alt=""
+              srcset=""
+            />
+          </div>
+
+          <div className="bg-gradient-to-br from-greyHighlight/40 px-1 max-sm:px-4 hover:bg-redHighlight/10 to-redHighlight/20 flex flex-col items-center justify-between transition-all duration-200 overflow-hidden rounded-lg  h-[20vw] w-[20vw]  min-h-40 min-w-40 max-w-64 max-h-64 ">
+            <p className="font-zig  pt-6  text-center  text-sm max-sm:text-1xl ">
+              Compartilhe do jeito que preferir
+            </p>
+            <img
+              className="sm:h-[15vw] h-[40vw] aspect-square object-cover"
+              src="https://i.imgur.com/uKjJUbS.png"
+              alt=""
+              srcset=""
+            />
           </div>
         </div>
-        <Line></Line>
       </div>
     </div>
   );

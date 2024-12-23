@@ -1,41 +1,58 @@
-import { useState, useEffect } from "react";
-import { getCardQuantity } from "../../../hooks/useAPI";
-import Line from "../../../components/Line";
-
 export default function Why() {
-  const [quantityOfUsers, setQuantityOfUsers] = useState(null);
-
-  useEffect(() => {
-    const fetchQuantityUsers = async () => {
-      try {
-        const data = await getCardQuantity();
-        console.log(data);
-        setQuantityOfUsers(data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    if (quantityOfUsers == null) {
-      fetchQuantityUsers();
-    }
-  }, []);
-
   return (
-    <div className="space-y-3 text-base">
-      <h1 className="text-xl font-zig">Por que criar uma lembrança única?</h1>
-      <p>
-        Mais de <strong className="font-garetBold">{quantityOfUsers} pessoas</strong> já utilizaram nosso site para <strong className="font-garetBold">celebrar
-        momentos especiais</strong>. Seja para marcar um aniversário, uma amizade ou
-        datas especiais, você pode adicionar um <strong className="font-garetBold">toque pessoal</strong> que vai tornar
-        essa lembrança ainda mais inesquecível.
-      </p>
-      <p>
-      <strong className="font-garetBold">Crie uma mensagem única</strong>, adicione suas fotos e <strong className="font-garetBold">compartilhe facilmente o
-        link ou o QR Code</strong> com amigos e familiares. Se preferir, você pode privar
-        a criação, tornando-a apenas visível para quem você escolher. Além
-        disso, é possível adicionar um link para o YouTube, tornando a
-        <strong className="font-garetBold"> experiência</strong> ainda mais completa e interativa.
-      </p>
+    <div className=" text-base space-y-4">
+      <h1 className="text-2xl sm:text-3xl font-zig">Por que o Congrats?</h1>
+      <div className="flex gap-2 sm:gap-6 flex-wrap pl-2 sm:pl-4">
+
+        <div className="text-xs sm:text-sm lg:text-base bg-gradient-to-tl flex flex-col justify-center items-center max-sm:px-4 from-greyHighlight/40 hover:bg-redHighlight/5 to-dark/20  transition-all duration-200 p-2 overflow-hidden rounded-lg  size-64 relative  h-[20vw] w-[20vw]  min-w-40 min-h-40  max-w-52 max-h-52 ">
+          <p className="font-garet py-1 text-center">Totalmente</p>
+          <p className="font-zig py-1 text-center text-base sm:text-lg lg:text-xl">
+            Gratuito
+          </p>
+          <p className="font-garet py-1 text-center">(open-source)</p>
+        </div>
+
+        <div className="text-xs sm:text-sm lg:text-base bg-gradient-to-tl flex flex-col justify-center items-center max-sm:px-4 from-greyHighlight/40 hover:bg-redHighlight/5 to-dark/20  transition-all duration-200 p-2 overflow-hidden rounded-lg  size-64 relative  h-[20vw] w-[20vw]  min-w-40 min-h-40  max-w-52 max-h-52 ">
+          <p className="font-garet py-1  text-center">Gera um</p>
+          <p className="font-zig py-1 text-center text-base sm:text-lg lg:text-xl">
+            QR-Code
+          </p>
+          <p className="font-garet py-1  text-center">para impressão</p>
+        </div>
+
+        <div className="text-xs sm:text-sm lg:text-base bg-gradient-to-tl flex flex-col justify-center items-center max-sm:px-4 from-greyHighlight/40 hover:bg-redHighlight/5 to-dark/20  transition-all duration-200 p-2 overflow-hidden rounded-lg  size-64 relative  h-[20vw] w-[20vw]  min-w-40 min-h-40  max-w-52 max-h-52 ">
+          <p className="font-garet py-1  text-center">Permite</p>
+          <p className="font-zig py-1 text-center text-base sm:text-lg lg:text-xl">
+            Senha
+          </p>
+        </div>
+
+        <div className="text-xs sm:text-sm lg:text-base bg-gradient-to-tl flex flex-col justify-center items-center max-sm:px-4 from-greyHighlight/40 hover:bg-redHighlight/5 to-dark/20  transition-all duration-200 p-2 overflow-hidden rounded-lg  size-64 relative  h-[20vw] w-[20vw]  min-w-40 min-h-40  max-w-52 max-h-52 ">
+          <p className="font-garet py-1  text-center">Gera mídia para</p>
+          <p className="font-zig py-1 text-center text-base sm:text-lg lg:text-xl">
+            Stories
+          </p>
+        </div>
+
+        <div className="text-xs sm:text-sm lg:text-base bg-gradient-to-tl flex flex-col justify-center items-center max-sm:px-4 from-greyHighlight/40 hover:bg-redHighlight/5 to-dark/20  transition-all duration-200 p-2 overflow-hidden rounded-lg  size-64 relative  h-[20vw] w-[20vw]  min-w-40 min-h-40  max-w-52 max-h-52 ">
+          <p className="font-garet py-1  text-center">
+          Permite músicas do
+          </p>
+          <p className="font-zig py-1 text-center text-base sm:text-lg lg:text-xl">
+            Youtube</p>
+        </div>
+
+
+        <div className="text-xs sm:text-sm lg:text-base bg-gradient-to-tl flex flex-col justify-center items-center max-sm:px-4 from-greyHighlight/40 hover:bg-redHighlight/5 to-dark/20  transition-all duration-200 p-2 overflow-hidden rounded-lg  size-64 relative  h-[20vw] w-[20vw]  min-w-40 min-h-40  max-w-52 max-h-52 ">
+          <p className="font-garet py-1  text-center">
+          Permite
+          </p>
+          <p className="font-zig py-1 text-center text-base sm:text-lg lg:text-xl">
+            Contador</p>
+          <p className="font-garet py-1  text-center">de tempo</p>
+        </div>
+
+      </div>
     </div>
   );
 }

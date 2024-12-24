@@ -13,7 +13,7 @@ export default function Hero() {
         Quem cria e quem recebe vivenciam momentos únicos, podendo compartilhar essas lembranças nas redes sociais de forma especial!
         </p>
         <CustomButton
-          customStyle={"max-w-72 max-sm:flex max-sm:self-center shadow-lg shadow-redHighlight/40"}
+          customStyle={"max-w-72 max-sm:flex max-sm:self-center shadow-4xl shadow-redHighlight/40"}
           onClick={() => navigate("/create")}
         >
           Criar minha mensagem
@@ -21,8 +21,8 @@ export default function Hero() {
       </div>
       <div className="sm:w-[48%] pt-4 flex justify-center items-center">
         <img
-          className="drop-shadow-xl	"
-          src="https://i.imgur.com/0OsW3a9.png"
+          className="drop-shadow-2xl "
+          src="https://i.imgur.com/n1tNBKn.png"
           alt="mockups do site"
         />
       </div>

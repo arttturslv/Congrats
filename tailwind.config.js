@@ -22,9 +22,12 @@ export default {
       },
       boxShadow: {
         "3xl": "0 4px 4px 0px rgba(0, 0, 0, 0.25)",
+        "4xl": "0px 0px 16px 1px rgba(0, 0, 0, 0.25)",
       },
       dropShadow: {
         "3xl": "0 4px 4px 0px rgba(0, 0, 0, 0.25)",
+        "4xl": "0 4px 4px 0px rgba(0, 0, 0, 0.60)",
+
       }
     },
   },

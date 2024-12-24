@@ -11,8 +11,7 @@ export default function About() {
             <img
               className="sm:h-[15vw] h-[40vw] aspect-square object-cover"
               src="https://i.imgur.com/ROrVwop.png"
-              alt=""
-              srcset=""
+              alt="mockup"
             />
           </div>
 
@@ -23,8 +22,7 @@ export default function About() {
             <img
               className="sm:h-[15vw] h-[40vw] aspect-square object-cover"
               src="https://i.imgur.com/MwMBNFM.png"
-              alt=""
-              srcset=""
+              alt="mockup"
             />
           </div>
 
@@ -35,8 +33,7 @@ export default function About() {
             <img
               className="sm:h-[15vw] h-[40vw] aspect-square object-cover"
               src="https://i.imgur.com/B9Jdjzy.png"
-              alt=""
-              srcset=""
+              alt="mockup"
             />
           </div>
 
@@ -47,8 +44,7 @@ export default function About() {
             <img
               className="sm:h-[15vw] h-[40vw] aspect-square object-cover"
               src="https://i.imgur.com/uKjJUbS.png"
-              alt=""
-              srcset=""
+              alt="mockup"
             />
           </div>
         </div>

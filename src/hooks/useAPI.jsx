@@ -34,13 +34,14 @@ export async function getCard(easyId, passKey) {
         }
 
         let responseJSON = await response.json();
+
         let {status, data} = responseJSON;
 
         if(status=="pending") {
             let res = data.about;
             return {status, res};
         } else if(status=="success") {
-            let res = data.response[0];
+            let res = data.responseOne;
             return {status, res};
         }
         
@@ -48,6 +49,32 @@ export async function getCard(easyId, passKey) {
         throw new Error(error);
     }
 }
+
+export async function updateCardShareCount(easyId) {
+    try {
+        const response = await fetch(`${API}/update/${easyId}`, {
+            method: 'POST',
+            headers: {"Content-Type": "application/json"},
+        });
+
+        if(!response.ok) {
+            const errorMessage = await response.text();
+            console.log(errorMessage)
+
+            throw new Error(`HTTP ${response.status} - ${response.statusText}`);
+        }
+
+        let responseJSON = await response.json();
+        let {status} = responseJSON;
+
+        console.log("ShareCount status: ", status);
+        return status;
+        
+    } catch (error) {
+        throw new Error(error);
+    }
+}
+
 
 export async function getCardQuantity() {
     try {

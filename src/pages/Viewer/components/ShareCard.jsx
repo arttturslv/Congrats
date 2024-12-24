@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import html2canvas from "html2canvas";
-import Line from "../../../components/Line";
+import {updateCardShareCount} from '../../../hooks/useAPI'
 import CustomButton from "../../../components/CustomButton";
 import shareIcon from "../../../assets/images/share.png";
 import giftBoxIcon from "../../../assets/images/gift-box.png";
@@ -8,12 +8,19 @@ import ballonBlue from "../../../assets/images/balloon-blue.png";
 import ballonRed from "../../../assets/images/balloon-red.png";
 import ballonYellow from "../../../assets/images/balloon-yellow.png";
 import { Link } from "react-router-dom";
-export default function ShareCard({ senderName, pictures, title, teste }) {
+export default function ShareCard({ senderName, easyId, pictures, title, teste }) {
   const URL = window.location.href;
 
   const shareRef = useRef();
 
-  const shareWithFriends = () => {
+  const shareWithFriends = async () => {
+
+    try {
+      await updateCardShareCount(easyId)
+    } catch (error) {
+      console.log(error)
+    }
+
     html2canvas(shareRef.current)
       .then(function (canvas) {
         canvas.toBlob(function (blob) {

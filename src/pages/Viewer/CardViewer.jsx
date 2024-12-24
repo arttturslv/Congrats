@@ -42,7 +42,7 @@ export default function CardViewer({ card, teste = false }) {
         <ShareCard
           teste={teste}
           pictures={card.pictures}
-          receiverName={card.receiverName}
+          easyId={card.easyId}
           title={card.title}
           senderName={card.senderName}
         ></ShareCard>

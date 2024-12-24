@@ -1,6 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { getCard } from "../../hooks/useAPI";
-import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import Auth from "./Authentication";
@@ -28,22 +27,23 @@ export default function Viewer() {
       try {
         let {status, res} = await getCard(id, userPassKey);
         setCardStatus(status); 
-
         if(status=="success") {
           setCard(res);
         }
+
       } catch (error) {
         setError(error);
       } finally {
         setLoading(false);
       }
     };
-
+    console.log("- ", card)
     if (card === null) {
       fetchData();
     }
   }, [id, userPassKey]);
 
+  
   if (error) {
     return (
       <div className="space-y-2 text-center flex justify-center items-center h-screen flex-col">

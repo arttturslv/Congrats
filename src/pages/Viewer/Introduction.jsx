@@ -117,7 +117,7 @@ export default function Introduction({setShowPage, receiver, setCard}) {
               onAnimationComplete={() => {
                 if (allGone) {
                   setTimeout(() => {
-                    animate={
+
                       scale: 100
                     }
                   }, 3000);

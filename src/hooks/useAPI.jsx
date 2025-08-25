@@ -24,6 +24,10 @@ export async function postCard(data) {
 
 export async function getCard(easyId, passKey) {
     try {
+        const alphanumericRegex = /^[a-zA-Z0-9]+$/;
+        if (!alphanumericRegex.test(easyId) || !alphanumericRegex.test(passKey)) {
+            throw new Error("Invalid easyId or passKey");
+        }
         const response = await fetch(`${API}/${easyId}/${passKey}`);
 
         if(!response.ok) {

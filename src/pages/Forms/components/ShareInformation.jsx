@@ -30,15 +30,12 @@ export default function ShareInformation({ data }) {
     try {
       await navigator.clipboard.writeText(data.passKey);
       setAboutPassKey("A senha foi copiada: ");
+      setTimeout(() => {
+        setAboutPassKey("A sua senha é: ");
+      }, 800);
     } catch (error) {
       console.log("Erro ao copiar passKey!");
       setAboutPassKey("Erro ao copiar: ");
-    } finally {
-      let timer = setTimeout(() => {
-        setAboutPassKey("A sua senha é: ");
-      }, 800);
-
-      return () => clearTimeout(timer);
     }
   }
 

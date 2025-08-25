@@ -73,7 +73,7 @@ export default function Footer() {
       </div>
       <div className="gap-1 text-xs text-center">
         <p className="font-garet">
-          Copyright © 2024 - Todos os direitos reservados |{" "}
+          Copyright © 2024 - Todos os direitos reservados |{" "}
           <a
               className="hover:text-redHighlight transition-colors duration-100"
               href="termos-de-uso"
